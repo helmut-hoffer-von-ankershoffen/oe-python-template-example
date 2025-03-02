@@ -1,0 +1,21 @@
+_commit: v0.1.4-1-g94fa56b
+_src_path: .
+author_email: helmuthva@gmail.com
+author_github_username: helmut-hoffer-von-ankershoffen
+author_name: Helmut Hoffer von Ankershoffen
+docker_io_image_name: oe-python-template-example
+docker_io_owner: helmut-hoffer-von-ankershoffen
+github_repository_name: oe-python-template-example
+github_repository_owner: helmut-hoffer-von-ankershoffen
+github_repository_url_https: https://github.com/helmut-hoffer-von-ankershoffen/oe-python-template-example
+github_repository_url_ssh: git@github.com:helmut-hoffer-von-ankershoffen/oe-python-template-example.git
+org_email: helmuthva@gmail.com
+org_name: Helmut Hoffer von Ankershoffen
+project_description: Example project scaffolded and kept up to date with OE Python
+    Template (oe-python-template).
+project_icon: 🧠
+project_name: OE Python Template Example
+pypi_distribution_name: oe-python-template-example
+readthedocs_project_key: oe-python-template-example
+sonarqube_key: helmut-hoffer-von-ankershoffen_oe-python-template-example
+streamlit_project_key: oe-python-template-example

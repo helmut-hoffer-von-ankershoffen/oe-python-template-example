@@ -1,0 +1,36 @@
+.. only:: html
+
+   .. include:: main.rst
+
+.. toctree::
+	:hidden:
+
+	Home<self>
+
+.. toctree::
+   :maxdepth: 2
+
+   main
+   reference
+   release-notes
+   contributing
+
+.. sidebar-links::
+   :caption: Links
+   :github:
+   :pypi: oe-python-template-example
+
+   Docker <https://hub.docker.com/r/helmut-hoffer-von-ankershoffen/oe-python-template-example/tags>
+   SonarQube <https://sonarcloud.io/summary/new_code?id=>
+   Codecov <https://app.codecov.io/gh/helmut-hoffer-von-ankershoffen/oe-python-template-example>
+   ghcr.io <https://github.com/helmut-hoffer-von-ankershoffen/oe-python-template-example/pkgs/container/oe-python-template-example>
+   License <https://github.com/helmut-hoffer-von-ankershoffen/oe-python-template-example/blob/main/LICENSE>
+
+.. only:: html
+
+   Indices and tables
+   ==================
+
+   * :ref:`genindex`
+   * :ref:`modindex`
+   * :ref:`search`

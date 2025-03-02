@@ -1,0 +1,72 @@
+# .gitignore of project OE Python Template Example
+
+# Environment
+.env
+.env.backup
+.env.bak
+ENV/
+env/
+.envrc
+
+# Python virtual environment
+venv/
+.venv/
+
+# Python temps
+*.py[cdo]
+__pycache__/
+*.so
+*.egg
+*.egg-info/
+*.log
+dist/
+build/
+eggs/
+parts/
+sdist/
+develop-eggs/
+.installed.cfg
+.Python
+.pytest_cache/
+.ruff_cache/
+.nox
+.dmypy.json
+.mypy_cache/
+
+
+# Build Artefacts
+junit.xml
+.coverage*
+coverage.xml
+coverage_html/
+vulnerabilities.json
+licenses.json
+licenses-inverted.json
+sbom.json
+
+# IDE
+.idea/
+*.swp
+*.swo
+
+# macOS
+.DS_Store
+
+# Other OS
+lib/
+lib64/
+
+# Data
+var/
+tmp/
+
+# Node temps
+node_modules/
+
+# AI workflow
+.fixme
+
+# Copier
+*.rej
+
+# Application specific
