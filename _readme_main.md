@@ -45,7 +45,7 @@ uvx oe-python-template-example command --help      # all options for command
 * Compliant with modern linting and formatting standards (powered by [Ruff](https://github.com/astral-sh/ruff))
 * Up-to-date dependencies (monitored by [Renovate](https://github.com/renovatebot/renovate))
 * [A-grade code quality](https://sonarcloud.io/summary/new_code?id=helmut-hoffer-von-ankershoffen_oe-python-template-example) in security, maintainability, and reliability with low technical debt and low codesmell (verified by SonarQube)
-* 1-liner for installation and execution of command line interface (CLI) via [uv(x)](https://github.com/astral-sh/uv) or [Docker](https://hub.docker.com/r/helmut-hoffer-von-ankershoffen/oe-python-template-example/tags)
+* 1-liner for installation and execution of command line interface (CLI) via [uv(x)](https://github.com/astral-sh/uv) or [Docker](https://hub.docker.com/r/helmuthva/oe-python-template-example/tags)
 * Setup for developing inside a [devcontainer](https://code.visualstudio.com/docs/devcontainers/containers) included (supports VSCode and GitHub Codespaces)
 
 ## Usage Examples
@@ -155,16 +155,16 @@ Now run the usage examples again.
 You can as well run the CLI within Docker.
 
 ```shell
-docker run helmut-hoffer-von-ankershoffen/oe-python-template-example --help
-docker run helmut-hoffer-von-ankershoffen/oe-python-template-example hello-world
-docker run helmut-hoffer-von-ankershoffen/oe-python-template-example hello-world --json
-docker run helmut-hoffer-von-ankershoffen/oe-python-template-example echo "Lorem"
+docker run helmuthva/oe-python-template-example --help
+docker run helmuthva/oe-python-template-example hello-world
+docker run helmuthva/oe-python-template-example hello-world --json
+docker run helmuthva/oe-python-template-example echo "Lorem"
 ```
 
 Execute command:
 
 ```shell
-docker run --env THE_VAR=MY_VALUE helmut-hoffer-von-ankershoffen/oe-python-template-example echo "Lorem Ipsum"
+docker run --env THE_VAR=MY_VALUE helmuthva/oe-python-template-example echo "Lorem Ipsum"
 ```
 
 Or use docker compose

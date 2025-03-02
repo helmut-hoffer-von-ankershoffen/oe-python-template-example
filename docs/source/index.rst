@@ -20,7 +20,7 @@
    :github:
    :pypi: oe-python-template-example
 
-   Docker <https://hub.docker.com/r/helmut-hoffer-von-ankershoffen/oe-python-template-example/tags>
+   Docker <https://hub.docker.com/r/helmuthva/oe-python-template-example/tags>
    SonarQube <https://sonarcloud.io/summary/new_code?id=>
    Codecov <https://app.codecov.io/gh/helmut-hoffer-von-ankershoffen/oe-python-template-example>
    ghcr.io <https://github.com/helmut-hoffer-von-ankershoffen/oe-python-template-example/pkgs/container/oe-python-template-example>

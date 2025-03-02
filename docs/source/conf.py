@@ -76,7 +76,7 @@ html_theme_options = {
     "announcement": (
         '<a target="_blank" href="https://github.com/helmut-hoffer-von-ankershoffen/oe-python-template-example">GitHub</a> - '  # noqa: E501
         '<a target="_blank" href="https://pypi.org/project/oe-python-template-example">PyPI</a> - '
-        '<a target="_blank" href="https://hub.docker.com/r/helmut-hoffer-von-ankershoffen/oe-python-template-example/tags">Docker</a> - '  # noqa: E501
+        '<a target="_blank" href="https://hub.docker.com/r/helmuthva/oe-python-template-example/tags">Docker</a> - '
         '<a target="_blank" href="https://sonarcloud.io/summary/new_code?id=helmut-hoffer-von-ankershoffen_oe-python-template-example">SonarQube</a> - '  # noqa: E501
         '<a target="_blank" href="https://app.codecov.io/gh/helmut-hoffer-von-ankershoffen/oe-python-template-example">Codecov</a>'
     ),

@@ -16,8 +16,8 @@
 [![GitHub - Commits](https://img.shields.io/github/commit-activity/m/helmut-hoffer-von-ankershoffen/oe-python-template-example/main?label=commits&style=flat&labelColor=1C2C2E&color=blue&logo=GitHub&logoColor=white)](https://github.com/helmut-hoffer-von-ankershoffen/oe-python-template-example/commits/main/)
 [![PyPI - Version](https://img.shields.io/pypi/v/oe-python-template-example.svg?label=PyPI&logo=pypi&logoColor=%23FFD243&labelColor=%230073B7&color=FDFDFD)](https://pypi.python.org/pypi/oe-python-template-example)
 [![PyPI - Status](https://img.shields.io/pypi/status/oe-python-template-example?logo=pypi&logoColor=%23FFD243&labelColor=%230073B7&color=FDFDFD)](https://pypi.python.org/pypi/oe-python-template-example)
-[![Docker - Version](https://img.shields.io/docker/v/helmut-hoffer-von-ankershoffen/oe-python-template-example?sort=semver&label=Docker&logo=docker&logoColor=white&labelColor=1354D4&color=10151B)](https://hub.docker.com/r/helmut-hoffer-von-ankershoffen/oe-python-template-example/tags)
-[![Docker - Size](https://img.shields.io/docker/image-size/helmut-hoffer-von-ankershoffen/oe-python-template-examplesort=semver&arch=arm64&label=image&logo=docker&logoColor=white&labelColor=1354D4&color=10151B)](https://hub.docker.com/r/helmut-hoffer-von-ankershoffen/oe-python-template-example/)
+[![Docker - Version](https://img.shields.io/docker/v/helmuthva/oe-python-template-example?sort=semver&label=Docker&logo=docker&logoColor=white&labelColor=1354D4&color=10151B)](https://hub.docker.com/r/helmuthva/oe-python-template-example/tags)
+[![Docker - Size](https://img.shields.io/docker/image-size/helmuthva/oe-python-template-examplesort=semver&arch=arm64&label=image&logo=docker&logoColor=white&labelColor=1354D4&color=10151B)](https://hub.docker.com/r/helmuthva/oe-python-template-example/)
 [![Copier](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/copier-org/copier/master/img/badge/badge-grayscale-inverted-border-orange.json)](https://github.com/helmut-hoffer-von-ankershoffen/oe-python-template)
 <!---
 [![ghcr.io - Version](https://ghcr-badge.egpl.dev/helmut-hoffer-von-ankershoffen/oe-python-template-example/tags?color=%2344cc11&ignore=0.0%2C0%2Clatest&n=3&label=ghcr.io&trim=)](https://github.com/helmut-hoffer-von-ankershoffen/oe-python-template-example/pkgs/container/oe-python-template-example)
@@ -76,7 +76,7 @@ uvx oe-python-template-example command --help      # all options for command
 * Compliant with modern linting and formatting standards (powered by [Ruff](https://github.com/astral-sh/ruff))
 * Up-to-date dependencies (monitored by [Renovate](https://github.com/renovatebot/renovate))
 * [A-grade code quality](https://sonarcloud.io/summary/new_code?id=helmut-hoffer-von-ankershoffen_oe-python-template-example) in security, maintainability, and reliability with low technical debt and low codesmell (verified by SonarQube)
-* 1-liner for installation and execution of command line interface (CLI) via [uv(x)](https://github.com/astral-sh/uv) or [Docker](https://hub.docker.com/r/helmut-hoffer-von-ankershoffen/oe-python-template-example/tags)
+* 1-liner for installation and execution of command line interface (CLI) via [uv(x)](https://github.com/astral-sh/uv) or [Docker](https://hub.docker.com/r/helmuthva/oe-python-template-example/tags)
 * Setup for developing inside a [devcontainer](https://code.visualstudio.com/docs/devcontainers/containers) included (supports VSCode and GitHub Codespaces)
 
 ## Usage Examples
@@ -186,16 +186,16 @@ Now run the usage examples again.
 You can as well run the CLI within Docker.
 
 ```shell
-docker run helmut-hoffer-von-ankershoffen/oe-python-template-example --help
-docker run helmut-hoffer-von-ankershoffen/oe-python-template-example hello-world
-docker run helmut-hoffer-von-ankershoffen/oe-python-template-example hello-world --json
-docker run helmut-hoffer-von-ankershoffen/oe-python-template-example echo "Lorem"
+docker run helmuthva/oe-python-template-example --help
+docker run helmuthva/oe-python-template-example hello-world
+docker run helmuthva/oe-python-template-example hello-world --json
+docker run helmuthva/oe-python-template-example echo "Lorem"
 ```
 
 Execute command:
 
 ```shell
-docker run --env THE_VAR=MY_VALUE helmut-hoffer-von-ankershoffen/oe-python-template-example echo "Lorem Ipsum"
+docker run --env THE_VAR=MY_VALUE helmuthva/oe-python-template-example echo "Lorem Ipsum"
 ```
 
 Or use docker compose
