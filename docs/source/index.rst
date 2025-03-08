@@ -3,9 +3,9 @@
    .. include:: main.rst
 
 .. toctree::
-	:hidden:
+   :hidden:
 
-	Home<self>
+   Home<self>
 
 .. toctree::
    :maxdepth: 2
@@ -21,7 +21,7 @@
    :pypi: oe-python-template-example
 
    Docker <https://hub.docker.com/r/helmuthva/oe-python-template-example/tags>
-   SonarQube <https://sonarcloud.io/summary/new_code?id=>
+   SonarQube <https://sonarcloud.io/summary/new_code?id=helmut-hoffer-von-ankershoffen_oe-python-template-example>
    Codecov <https://app.codecov.io/gh/helmut-hoffer-von-ankershoffen/oe-python-template-example>
    ghcr.io <https://github.com/helmut-hoffer-von-ankershoffen/oe-python-template-example/pkgs/container/oe-python-template-example>
    License <https://github.com/helmut-hoffer-von-ankershoffen/oe-python-template-example/blob/main/LICENSE>

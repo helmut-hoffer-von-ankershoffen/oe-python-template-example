@@ -1,5 +1,5 @@
 services:
-  oe_python_template_example:
+  oe-python-template-example:
     build: .
     env_file:
       - path: .env

@@ -33,7 +33,7 @@ github_repository = "oe-python-template-example"
 language = "en"
 
 ogp_site_name = "OE Python Template Example"
-ogp_image = "https://.readthedocs.io/en/latest/_static/logo.png"
+ogp_image = "https://oe-python-template-example.readthedocs.io/en/latest/_static/logo.png"
 ogp_custom_meta_tags = [
     '<meta name="twitter:card" content="OE Python Template Example" />',
 ]

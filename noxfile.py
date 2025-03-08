@@ -25,13 +25,17 @@ def _setup_venv(session: nox.Session, all_extras: bool = True) -> None:
 
 
 def _is_act_environment() -> bool:
-    """Check if running in GitLab ACT environment."""  # noqa: DOC201
-    return os.environ.get("GITLAB_WORKFLOW_RUNTIME") == "ACT"
+    """Check if running in GitHub ACT environment.
+
+    Returns:
+        bool: True if running in ACT environment, False otherwise.
+    """
+    return os.environ.get("GITHUB_WORKFLOW_RUNTIME") == "ACT"
 
 
 @nox.session(python=["3.13"])
 def lint(session: nox.Session) -> None:
-    """Run code linting and formatting checks."""
+    """Run code formatting checks, linting, and static type checking."""
     _setup_venv(session)
     session.run("ruff", "check", ".")
     session.run(
@@ -40,6 +44,7 @@ def lint(session: nox.Session) -> None:
         "--check",
         ".",
     )
+    session.run("mypy", "src")
 
 
 @nox.session(python=["3.13"])
@@ -100,14 +105,17 @@ def test(session: nox.Session) -> None:
 @nox.session(python=["3.13"], default=False)
 def setup_dev(session: nox.Session) -> None:
     """Setup dev environment post project creation."""
-    session.run("ruff", "check", ".", external=True)
+    _setup_venv(session)
     session.run("ruff", "format", ".", external=True)
-    session.run("uv", "run", "pre-commit", "install", external=True)
-    with Path(".secrets.baseline").open("w", encoding="utf-8") as out:
-        session.run("detect-secrets", "scan", stdout=out, external=True)
-    session.run("git", "add", ".", external=True)
-    try:
-        session.run("pre-commit", external=True)
-    except Exception:  # noqa: BLE001
-        session.log("pre-commit run failed, continuing anyway")
-    session.run("git", "add", ".", external=True)
+    git_dir = Path(".git")
+    if git_dir.is_dir():
+        session.run("echo", "found .git directory, running pre-commit install and hooks", external=True)
+        session.run("pre-commit", "install", external=True)
+        with Path(".secrets.baseline").open("w", encoding="utf-8") as out:
+            session.run("detect-secrets", "scan", stdout=out, external=True)
+        session.run("git", "add", ".", external=True)
+        try:
+            session.run("pre-commit", external=True)
+        except Exception:  # noqa: BLE001
+            session.log("pre-commit run failed, continuing anyway")
+        session.run("git", "add", ".", external=True)

@@ -3,7 +3,6 @@
         "**/__pycache__ ": true
     },
     "editor.formatOnSave": true,
-    "editor.defaultFormatter": "charliermarsh.ruff",
     "terminal.integrated.scrollback": 100000,
     "[python]": {
         "editor.codeActionsOnSave": {
@@ -40,7 +39,7 @@
     "python.testing.pytestEnabled": true,
     "python.testing.pytestArgs": [
         "-v",
-        "--cov={{ project_name_snake_case }}"
+        "--cov=oe_python_template_example"
     ],
     "github.copilot.selectedCompletionModel": "gpt-4o-copilot",
     "github.copilot.nextEditSuggestions.enabled": true,
@@ -67,9 +66,5 @@
     "sonarlint.connectedMode.project": {
         "connectionId": "helmut-hoffer-von-ankershoffen",
         "projectKey": "helmut-hoffer-von-ankershoffen_oe-python-template-example"
-    },
-    "pre-commit-helper.runOnSave": "fixes",
-    "pre-commit-helper.excludedHookIds": [
-        "nox"
-    ],
+    }
 }
