@@ -1,6 +1,6 @@
 [project]
 name = "oe-python-template-example"
-version = "0.0.5"
+version = "0.0.6"
 description = "🧠 Example project scaffolded and kept up to date with OE Python Template (oe-python-template)."
 readme = "README.md"
 authors = [
@@ -242,7 +242,7 @@ source = ["src/"]
 
 
 [tool.bumpversion]
-current_version = "0.0.5"
+current_version = "0.0.6"
 parse = "(?P<major>\\d+)\\.(?P<minor>\\d+)\\.(?P<patch>\\d+)"
 serialize = ["{major}.{minor}.{patch}"]
 search = "{current_version}"
