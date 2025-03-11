@@ -123,7 +123,7 @@ uvx oe-python-template-example hello-world --help    # help for specific command
 
 * Example project scaffolded and kept up to date with OE Python Template (oe-python-template).
 * Various Examples:
-  - [Simple Python script]https://github.com/helmut-hoffer-von-ankershoffen/oe-python-template-example/blob/main/examples/script.py)
+  - [Simple Python script]({ github_repository_url_https }/blob/main/examples/script.py)
   - [Streamlit web application](https://oe-python-template-example.streamlit.app/) deployed on [Streamlit Community Cloud](https://streamlit.io/cloud)
   - [Jupyter](https://github.com/helmut-hoffer-von-ankershoffen/oe-python-template-example/blob/main/examples/notebook.ipynb) and [Marimo](https://github.com/helmut-hoffer-von-ankershoffen/oe-python-template-example/blob/main/examples/notebook.py) notebook
 * [Complete reference documenation](https://oe-python-template-example.readthedocs.io/en/latest/reference.html) on Read the Docs
