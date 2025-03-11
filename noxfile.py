@@ -9,6 +9,8 @@ import nox
 nox.options.reuse_existing_virtualenvs = True
 nox.options.default_venv_backend = "uv"
 
+NOT_SKIP_WITH_ACT = "not skip_with_act"
+
 
 def _setup_venv(session: nox.Session, all_extras: bool = True) -> None:
     """Install dependencies for the given session using uv."""
@@ -57,7 +59,13 @@ def docs(session: nox.Session) -> None:
     footer = Path("_readme_footer.md").read_text(encoding="utf-8")
     readme_content = f"{header}\n\n{main}\n\n{footer}"
     Path("README.md").write_text(readme_content, encoding="utf-8")
+    # Dump openapi schema to file
+    with Path("docs/source/_static/openapi.yaml").open("w", encoding="utf-8") as f:
+        session.run("oe-python-template-example", "openapi", stdout=f, external=True)
+    with Path("docs/source/_static/openapi.json").open("w", encoding="utf-8") as f:
+        session.run("oe-python-template-example", "openapi", "--output-format=json", stdout=f, external=True)
     # Build docs
+    session.run("make", "-C", "docs", "clean", external=True)
     session.run("make", "-C", "docs", "html", external=True)
 
 
@@ -98,7 +106,7 @@ def test(session: nox.Session) -> None:
     _setup_venv(session)
     pytest_args = ["pytest", "--disable-warnings", "--junitxml=junit.xml", "-n", "auto", "--dist", "loadgroup"]
     if _is_act_environment():
-        pytest_args.extend(["-k", "not skip_with_act"])
+        pytest_args.extend(["-k", NOT_SKIP_WITH_ACT])
     session.run(*pytest_args)
 
 

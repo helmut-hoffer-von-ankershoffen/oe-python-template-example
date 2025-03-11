@@ -119,7 +119,7 @@ Update scaffold from template
 copier update --trust --skip-tasks --skip-answered
 ```
 
-### Updating demo application contained within oe-python-template
+### Updating demo application contained within oe-python-template-example
 
 ```shell
 copier copy -r HEAD . . --force --trust
