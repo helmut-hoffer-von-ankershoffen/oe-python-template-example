@@ -88,7 +88,7 @@ uvx oe-python-template-example hello-world --help    # help for specific command
 
 * Example project scaffolded and kept up to date with OE Python Template (oe-python-template).
 * Various Examples:
-  - [Simple Python script]({ github_repository_url_https }/blob/main/examples/script.py)
+  - [Simple Python script](https://github.com/helmut-hoffer-von-ankershoffen/oe-python-template-example/blob/main/examples/script.py)
   - [Streamlit web application](https://oe-python-template-example.streamlit.app/) deployed on [Streamlit Community Cloud](https://streamlit.io/cloud)
   - [Jupyter](https://github.com/helmut-hoffer-von-ankershoffen/oe-python-template-example/blob/main/examples/notebook.ipynb) and [Marimo](https://github.com/helmut-hoffer-von-ankershoffen/oe-python-template-example/blob/main/examples/notebook.py) notebook
 * [Complete reference documenation](https://oe-python-template-example.readthedocs.io/en/latest/reference.html) on Read the Docs
@@ -188,8 +188,12 @@ Execute commands:
 
 ```shell
 uvx oe-python-template-example hello-world
-uvx oe-python-template-example hello-world --json
-uvx oe-python-template-example echo "Lorem Ipsum"
+uvx oe-python-template-example echo --help
+uvx oe-python-template-example echo "Lorem"
+uvx oe-python-template-example echo "Lorem" --json
+uvx oe-python-template-example openapi
+uvx oe-python-template-example openapi --output-format=json
+uvx oe-python-template-example serve
 ```
 
 ### Environment
@@ -210,8 +214,12 @@ You can as well run the CLI within Docker.
 ```shell
 docker run helmuthva/oe-python-template-example --help
 docker run helmuthva/oe-python-template-example hello-world
-docker run helmuthva/oe-python-template-example hello-world --json
+docker run helmuthva/oe-python-template-example echo --help
 docker run helmuthva/oe-python-template-example echo "Lorem"
+docker run helmuthva/oe-python-template-example echo "Lorem" --json
+docker run helmuthva/oe-python-template-example openapi
+docker run helmuthva/oe-python-template-example openapi --output-format=json
+docker run helmuthva/oe-python-template-example serve
 ```
 
 Execute command:
@@ -225,8 +233,15 @@ Or use docker compose
 The .env is passed through from the host to the Docker container.
 
 ```shell
-docker compose up
 docker compose run oe-python-template-example --help
+docker compose run oe-python-template-example hello-world
+docker compose run oe-python-template-example echo --help
+docker compose run oe-python-template-example echo "Lorem"
+docker compose run oe-python-template-example echo "Lorem" --json
+docker compose run oe-python-template-example openapi
+docker compose run oe-python-template-example openapi --output-format=json
+docker compose up
+curl http://127.0.0.1 8000
 ```
 
 ## Extra: Lorem Ipsum
