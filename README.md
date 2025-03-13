@@ -30,6 +30,10 @@
 
 > [!TIP]
 > 📚 [Online documentation](https://oe-python-template-example.readthedocs.io/en/latest/) - 📖 [PDF Manual](https://oe-python-template-example.readthedocs.io/_/downloads/en/latest/pdf/)
+
+> [!NOTE]
+> 🧠 This project was scaffolded using the template [oe-python-template](https://github.com/helmut-hoffer-von-ankershoffen/oe-python-template) with [copier](https://copier.readthedocs.io/).
+
 ---
 
 
