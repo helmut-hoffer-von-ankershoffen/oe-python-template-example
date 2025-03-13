@@ -38,8 +38,7 @@ components:
       title: HTTPValidationError
       type: object
     Health:
-      description: "Health status model.\n\nArgs:\n    BaseModel (_type_): 
-_description_"
+      description: Health status model.
       properties:
         reason:
           anyOf:
@@ -87,8 +86,7 @@ _description_"
       title: ValidationError
       type: object
     _HealthStatus:
-      description: "Health status enumeration.\n\nArgs:\n    StrEnum (_type_): 
-_description_"
+      description: Health status enumeration.
       enum:
       - UP
       - DOWN
@@ -148,11 +146,9 @@ unhealthy,\
 will\
         \ have a 200 OK status code if the service is healthy,\nand a 500 
 Internal\
-        \ Server Error status code if the service is unhealthy.\n\nArgs:\n    
-service\
-        \ (Annotated[Service, Depends): _description_\n    response (Response): 
-_description_\n\
-        \nReturns:\n    Health: The health status of the service."
+        \ Server Error status code if the service is unhealthy.\n\nReturns:\n   
+Health:\
+        \ The health status of the service."
       operationId: health_health_get
       responses:
         '200':
@@ -176,11 +172,9 @@ unhealthy,\
 will\
         \ have a 200 OK status code if the service is healthy,\nand a 500 
 Internal\
-        \ Server Error status code if the service is unhealthy.\n\nArgs:\n    
-service\
-        \ (Annotated[Service, Depends): _description_\n    response (Response): 
-_description_\n\
-        \nReturns:\n    Health: The health status of the service."
+        \ Server Error status code if the service is unhealthy.\n\nReturns:\n   
+Health:\
+        \ The health status of the service."
       operationId: health_healthz_get
       responses:
         '200':
