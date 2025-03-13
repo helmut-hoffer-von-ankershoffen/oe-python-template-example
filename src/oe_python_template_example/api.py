@@ -47,20 +47,14 @@ api = FastAPI(
         {
             "name": "v1",
             "description": "API version 1, check link on the right",
-            "externalDocs": {
-                "description": "sub-docs",
-                "url": "/api/v1/docs"
-            }
+            "externalDocs": {"description": "sub-docs", "url": "/api/v1/docs"},
         },
         {
             "name": "v2",
             "description": "API version 2, check link on the right",
-            "externalDocs": {
-                "description": "sub-docs",
-                "url": "/api/v2/docs"
-            }
+            "externalDocs": {"description": "sub-docs", "url": "/api/v2/docs"},
         },
-    ]
+    ],
 )
 
 api_v1 = FastAPI(
