@@ -5,6 +5,8 @@
 [![PyPI - Python Version](https://img.shields.io/pypi/pyversions/oe-python-template-example.svg?logo=python&color=204361&labelColor=1E2933)](https://github.com/helmut-hoffer-von-ankershoffen/oe-python-template-example/blob/main/noxfile.py)
 [![CI](https://github.com/helmut-hoffer-von-ankershoffen/oe-python-template-example/actions/workflows/test-and-report.yml/badge.svg)](https://github.com/helmut-hoffer-von-ankershoffen/oe-python-template-example/actions/workflows/test-and-report.yml)
 [![Read the Docs](https://img.shields.io/readthedocs/oe-python-template-example)](https://oe-python-template-example.readthedocs.io/en/latest/)
+[![CodeQL](https://github.com/helmut-hoffer-von-ankershoffen/oe-python-template-example/actions/workflows/codeql.yml/badge.svg)](https://github.com/helmut-hoffer-von-ankershoffen/oe-python-template-example/security/code-scanning)
+[![Dependabot](https://img.shields.io/badge/dependabot-active-brightgreen?style=flat-square&logo=dependabot)](https://github.com/helmut-hoffer-von-ankershoffen/oe-python-template-example/security/dependabot)
 [![Quality Gate](https://sonarcloud.io/api/project_badges/measure?project=helmut-hoffer-von-ankershoffen_oe-python-template-example&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=helmut-hoffer-von-ankershoffen_oe-python-template-example)
 [![Security](https://sonarcloud.io/api/project_badges/measure?project=helmut-hoffer-von-ankershoffen_oe-python-template-example&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=helmut-hoffer-von-ankershoffen_oe-python-template-example)
 [![Maintainability](https://sonarcloud.io/api/project_badges/measure?project=helmut-hoffer-von-ankershoffen_oe-python-template-example&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=helmut-hoffer-von-ankershoffen_oe-python-template-example)
@@ -84,7 +86,7 @@ git push
 Visit your GitHub repository and check the Actions tab. The CI workflow should fail at the SonarQube step,
 as this external service is not yet configured for our new repository.
 
-**Step 6**: Follow the [SERVICE_INSTRUCTIONS.md](instructions) to wire up
+**Step 6**: Follow the [instructions](SERVICE_CONNECTIONS.md) to wire up
 external services such as Cloudcov, SonarQube Cloud, Read The Docs, Docker.io, GHCR.io and Streamlit Community Cloud.
 
 **Step 7**: Release the first versions
@@ -143,12 +145,15 @@ This project is designed with operational excellence in mind, using modern Pytho
   - [Simple Python script](https://github.com/helmut-hoffer-von-ankershoffen/oe-python-template-example/blob/main/examples/script.py)
   - [Streamlit web application](https://oe-python-template-example.streamlit.app/) deployed on [Streamlit Community Cloud](https://streamlit.io/cloud)
   - [Jupyter](https://github.com/helmut-hoffer-von-ankershoffen/oe-python-template-example/blob/main/examples/notebook.ipynb) and [Marimo](https://github.com/helmut-hoffer-von-ankershoffen/oe-python-template-example/blob/main/examples/notebook.py) notebook
-* [Complete reference documenation](https://oe-python-template-example.readthedocs.io/en/latest/reference.html) on Read the Docs
+* [Complete reference documentation](https://oe-python-template-example.readthedocs.io/en/latest/reference.html) on Read the Docs
 * [Transparent test coverage](https://app.codecov.io/gh/helmut-hoffer-von-ankershoffen/oe-python-template-example) including unit and E2E tests (reported on Codecov)
 * Matrix tested with [multiple python versions](https://github.com/helmut-hoffer-von-ankershoffen/oe-python-template-example/blob/main/noxfile.py) to ensure compatibility (powered by [Nox](https://nox.thea.codes/en/stable/))
 * Compliant with modern linting and formatting standards (powered by [Ruff](https://github.com/astral-sh/ruff))
-* Up-to-date dependencies (monitored by [Renovate](https://github.com/renovatebot/renovate))
-* [A-grade code quality](https://sonarcloud.io/summary/new_code?id=helmut-hoffer-von-ankershoffen_oe-python-template-example) in security, maintainability, and reliability with low technical debt and low codesmell (verified by SonarQube)
+* Up-to-date dependencies (monitored by [Renovate](https://github.com/renovatebot/renovate) and [GitHub Dependabot](https://github.com/helmut-hoffer-von-ankershoffen/oe-python-template-example/security/dependabot))
+* [A-grade code quality](https://sonarcloud.io/summary/new_code?id=helmut-hoffer-von-ankershoffen_oe-python-template-example) in security, maintainability, and reliability with low technical debt and codesmell (verified by SonarQube)
+* Additional code security checks using [GitHub CodeQL](https://github.com/helmut-hoffer-von-ankershoffen/oe-python-template-example/security/code-scanning)
+* [Security Policy](SECURITY.md)
+* [License](LICENSE) compliant with the Open Source Initiative (OSI)
 * 1-liner for installation and execution of command line interface (CLI) via [uv(x)](https://github.com/astral-sh/uv) or [Docker](https://hub.docker.com/r/helmuthva/oe-python-template-example/tags)
 * Setup for developing inside a [devcontainer](https://code.visualstudio.com/docs/devcontainers/containers) included (supports VSCode and GitHub Codespaces)
 
