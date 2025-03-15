@@ -5,13 +5,14 @@
 [![PyPI - Python Version](https://img.shields.io/pypi/pyversions/oe-python-template-example.svg?logo=python&color=204361&labelColor=1E2933)](https://github.com/helmut-hoffer-von-ankershoffen/oe-python-template-example/blob/main/noxfile.py)
 [![CI](https://github.com/helmut-hoffer-von-ankershoffen/oe-python-template-example/actions/workflows/test-and-report.yml/badge.svg)](https://github.com/helmut-hoffer-von-ankershoffen/oe-python-template-example/actions/workflows/test-and-report.yml)
 [![Read the Docs](https://img.shields.io/readthedocs/oe-python-template-example)](https://oe-python-template-example.readthedocs.io/en/latest/)
-[![CodeQL](https://github.com/helmut-hoffer-von-ankershoffen/oe-python-template-example/actions/workflows/codeql.yml/badge.svg)](https://github.com/helmut-hoffer-von-ankershoffen/oe-python-template-example/security/code-scanning)
-[![Dependabot](https://img.shields.io/badge/dependabot-active-brightgreen?style=flat-square&logo=dependabot)](https://github.com/helmut-hoffer-von-ankershoffen/oe-python-template-example/security/dependabot)
 [![Quality Gate](https://sonarcloud.io/api/project_badges/measure?project=helmut-hoffer-von-ankershoffen_oe-python-template-example&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=helmut-hoffer-von-ankershoffen_oe-python-template-example)
 [![Security](https://sonarcloud.io/api/project_badges/measure?project=helmut-hoffer-von-ankershoffen_oe-python-template-example&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=helmut-hoffer-von-ankershoffen_oe-python-template-example)
 [![Maintainability](https://sonarcloud.io/api/project_badges/measure?project=helmut-hoffer-von-ankershoffen_oe-python-template-example&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=helmut-hoffer-von-ankershoffen_oe-python-template-example)
 [![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=helmut-hoffer-von-ankershoffen_oe-python-template-example&metric=sqale_index)](https://sonarcloud.io/summary/new_code?id=helmut-hoffer-von-ankershoffen_oe-python-template-example)
 [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=helmut-hoffer-von-ankershoffen_oe-python-template-example&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=helmut-hoffer-von-ankershoffen_oe-python-template-example)
+[![CodeQL](https://github.com/helmut-hoffer-von-ankershoffen/oe-python-template-example/actions/workflows/codeql.yml/badge.svg)](https://github.com/helmut-hoffer-von-ankershoffen/oe-python-template-example/security/code-scanning)
+[![Dependabot](https://img.shields.io/badge/dependabot-active-brightgreen?style=flat-square&logo=dependabot)](https://github.com/helmut-hoffer-von-ankershoffen/oe-python-template-example/security/dependabot)
+[![Renovate enabled](https://img.shields.io/badge/renovate-enabled-brightgreen.svg)](https://renovatebot.com/)
 [![Coverage](https://codecov.io/gh/helmut-hoffer-von-ankershoffen/oe-python-template-example/graph/badge.svg?token=SX34YRP30E)](https://codecov.io/gh/helmut-hoffer-von-ankershoffen/oe-python-template-example)
 [![Ruff](https://img.shields.io/badge/style-Ruff-blue?color=D6FF65)](https://github.com/helmut-hoffer-von-ankershoffen/oe-python-template-example/blob/main/noxfile.py)
 [![MyPy](https://img.shields.io/badge/mypy-checked-blue)](https://github.com/helmut-hoffer-von-ankershoffen/oe-python-template-example/blob/main/noxfile.py)
@@ -74,13 +75,10 @@ uvx oe-python-template-example serve --port=4711 # serves webservice API on port
 ```
 
 Notes:
+* The API is versioned, mounted at `/api/v1` resp. `/api/v2`
+* While serving the webservice API go to [http://127.0.0.1:8000/api/v1/hello-world](http://127.0.0.1:8000/api/v1/hello-world) to see the respons of the `hello-world` operation.
+* Interactive documentation is provided at [http://127.0.0.1:8000/api/docs](http://127.0.0.1:8000/api/docs)
 
-- The API is versioned, mounted at `/api/v1` resp. `/api/v2`
-- While serving the webservice API go to
-  [http://127.0.0.1:8000/api/v1/hello-world](http://127.0.0.1:8000/api/v1/hello-world)
-  to see the respons of the `hello-world` operation.
-- Interactive documentation is provided at
-  [http://127.0.0.1:8000/api/docs](http://127.0.0.1:8000/api/docs)
 
 The CLI provides extensive help:
 
