@@ -1,4 +1,4 @@
-# Contributing to OE Python Template Example
+# Contributing
 
 Thank you for considering contributing to OE Python Template Example!
 
