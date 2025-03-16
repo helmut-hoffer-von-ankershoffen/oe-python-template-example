@@ -1,5 +1,12 @@
 [🧠 OE Python Template Example](https://oe-python-template-example.readthedocs.io/en/latest/)
 
+## [0.2.0](https://github.com/helmut-hoffer-von-ankershoffen/oe-python-template-example/compare/v0.1.19..0.2.0) - 2025-03-16
+
+### ⛰️  Features
+
+- Code-style for humans and agents - ([c03b6d5](https://github.com/helmut-hoffer-von-ankershoffen/oe-python-template-example/commit/c03b6d5c12b4bc47bf206236a8363937177da040))
+
+
 ## [0.1.15](https://github.com/helmut-hoffer-von-ankershoffen/oe-python-template-example/compare/v0.1.14..v0.1.15) - 2025-03-15
 
 ### ⚙️ Miscellaneous Tasks
