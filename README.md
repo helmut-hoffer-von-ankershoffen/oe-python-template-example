@@ -1,3 +1,6 @@
+
+[//]: # (README.md generated from docs/partials/README_*.md)
+
 # 🧠 OE Python Template Example
 
 [![License](https://img.shields.io/github/license/helmut-hoffer-von-ankershoffen/oe-python-template-example?logo=opensourceinitiative&logoColor=3DA639&labelColor=414042&color=A41831)
@@ -75,10 +78,13 @@ uvx oe-python-template-example serve --port=4711 # serves webservice API on port
 ```
 
 Notes:
-* The API is versioned, mounted at `/api/v1` resp. `/api/v2`
-* While serving the webservice API go to [http://127.0.0.1:8000/api/v1/hello-world](http://127.0.0.1:8000/api/v1/hello-world) to see the respons of the `hello-world` operation.
-* Interactive documentation is provided at [http://127.0.0.1:8000/api/docs](http://127.0.0.1:8000/api/docs)
 
+- The API is versioned, mounted at `/api/v1` resp. `/api/v2`
+- While serving the webservice API go to
+  [http://127.0.0.1:8000/api/v1/hello-world](http://127.0.0.1:8000/api/v1/hello-world)
+  to see the respons of the `hello-world` operation.
+- Interactive documentation is provided at
+  [http://127.0.0.1:8000/api/docs](http://127.0.0.1:8000/api/docs)
 
 The CLI provides extensive help:
 
