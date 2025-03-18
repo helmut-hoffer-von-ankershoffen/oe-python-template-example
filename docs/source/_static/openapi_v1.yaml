@@ -1,34 +1,14 @@
 Traceback (most recent call last):
   File "/Users/helmut/Code/oe-python-template-example/.nox/docs-3-13/bin/oe-python-template-example", line 4, in <module>
     from oe_python_template_example.cli import cli
-  File "/Users/helmut/Code/oe-python-template-example/src/oe_python_template_example/cli.py", line 13, in <module>
-    from oe_python_template_example.api import api_v1, api_v2
-  File "/Users/helmut/Code/oe-python-template-example/src/oe_python_template_example/api.py", line 16, in <module>
-    from fastapi import Depends, FastAPI, Response, status
-  File "/Users/helmut/Code/oe-python-template-example/.nox/docs-3-13/lib/python3.13/site-packages/fastapi/__init__.py", line 7, in <module>
-    from .applications import FastAPI as FastAPI
-  File "/Users/helmut/Code/oe-python-template-example/.nox/docs-3-13/lib/python3.13/site-packages/fastapi/applications.py", line 16, in <module>
-    from fastapi import routing
-  File "/Users/helmut/Code/oe-python-template-example/.nox/docs-3-13/lib/python3.13/site-packages/fastapi/routing.py", line 34, in <module>
-    from fastapi.dependencies.models import Dependant
-  File "/Users/helmut/Code/oe-python-template-example/.nox/docs-3-13/lib/python3.13/site-packages/fastapi/dependencies/models.py", line 5, in <module>
-    from fastapi.security.base import SecurityBase
-  File "/Users/helmut/Code/oe-python-template-example/.nox/docs-3-13/lib/python3.13/site-packages/fastapi/security/__init__.py", line 1, in <module>
-    from .api_key import APIKeyCookie as APIKeyCookie
-  File "/Users/helmut/Code/oe-python-template-example/.nox/docs-3-13/lib/python3.13/site-packages/fastapi/security/api_key.py", line 6, in <module>
-    from starlette.requests import Request
-  File "/Users/helmut/Code/oe-python-template-example/.nox/docs-3-13/lib/python3.13/site-packages/starlette/requests.py", line 12, in <module>
-    from starlette.formparsers import FormParser, MultiPartException, MultiPartParser
-  File "/Users/helmut/Code/oe-python-template-example/.nox/docs-3-13/lib/python3.13/site-packages/starlette/formparsers.py", line 17, in <module>
-    import python_multipart as multipart
-  File "/Users/helmut/Code/oe-python-template-example/.nox/docs-3-13/lib/python3.13/site-packages/python_multipart/__init__.py", line 7, in <module>
-    from .multipart import (
-    ...<7 lines>...
-    )
-  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
-  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
-  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
-  File "<frozen importlib._bootstrap_external>", line 1022, in exec_module
-  File "<frozen importlib._bootstrap_external>", line 1155, in get_code
-  File "<frozen importlib._bootstrap_external>", line 784, in _compile_bytecode
+  File "/Users/helmut/Code/oe-python-template-example/src/oe_python_template_example/cli.py", line 9, in <module>
+    import yaml
+  File "/Users/helmut/Code/oe-python-template-example/.nox/docs-3-13/lib/python3.13/site-packages/yaml/__init__.py", line 8, in <module>
+    from .loader import *
+  File "/Users/helmut/Code/oe-python-template-example/.nox/docs-3-13/lib/python3.13/site-packages/yaml/loader.py", line 8, in <module>
+    from .constructor import *
+  File "/Users/helmut/Code/oe-python-template-example/.nox/docs-3-13/lib/python3.13/site-packages/yaml/constructor.py", line 19, in <module>
+    class BaseConstructor:
+    ...<149 lines>...
+            cls.yaml_multi_constructors[tag_prefix] = multi_constructor
 KeyboardInterrupt
