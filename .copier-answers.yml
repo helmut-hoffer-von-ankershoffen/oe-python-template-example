@@ -1,8 +1,9 @@
-_commit: v0.6.0
+_commit: v0.6.12
 _src_path: gh:helmut-hoffer-von-ankershoffen/oe-python-template
 author_email: helmuthva@gmail.com
 author_github_username: helmut-hoffer-von-ankershoffen
 author_name: Helmut Hoffer von Ankershoffen
+docker_io_enabled: true
 docker_io_image_name: oe-python-template-example
 docker_io_owner: helmuthva
 github_repository_name: oe-python-template-example
@@ -16,6 +17,7 @@ project_description: Example project scaffolded and kept up to date with OE Pyth
 project_icon: 🧠
 project_name: OE Python Template Example
 pypi_distribution_name: oe-python-template-example
+readthedocs_domain: readthedocs.org
 readthedocs_project_key: oe-python-template-example
 sonarqube_key: helmut-hoffer-von-ankershoffen_oe-python-template-example
 streamlit_project_key: oe-python-template-example
