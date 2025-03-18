@@ -1,14 +1,14 @@
 Traceback (most recent call last):
   File "/Users/helmut/Code/oe-python-template-example/.nox/docs-3-13/bin/oe-python-template-example", line 4, in <module>
     from oe_python_template_example.cli import cli
-  File "/Users/helmut/Code/oe-python-template-example/src/oe_python_template_example/cli.py", line 9, in <module>
-    import yaml
-  File "/Users/helmut/Code/oe-python-template-example/.nox/docs-3-13/lib/python3.13/site-packages/yaml/__init__.py", line 8, in <module>
-    from .loader import *
-  File "/Users/helmut/Code/oe-python-template-example/.nox/docs-3-13/lib/python3.13/site-packages/yaml/loader.py", line 8, in <module>
-    from .constructor import *
-  File "/Users/helmut/Code/oe-python-template-example/.nox/docs-3-13/lib/python3.13/site-packages/yaml/constructor.py", line 19, in <module>
-    class BaseConstructor:
-    ...<149 lines>...
-            cls.yaml_multi_constructors[tag_prefix] = multi_constructor
+  File "/Users/helmut/Code/oe-python-template-example/src/oe_python_template_example/cli.py", line 7, in <module>
+    import typer
+  File "/Users/helmut/Code/oe-python-template-example/.nox/docs-3-13/lib/python3.13/site-packages/typer/__init__.py", line 29, in <module>
+    from .main import Typer as Typer
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 1022, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 1118, in get_code
+  File "<frozen importlib._bootstrap_external>", line 1218, in get_data
 KeyboardInterrupt
