@@ -1,5 +1,15 @@
 [🧠 OE Python Template Example](https://oe-python-template-example.readthedocs.io/en/latest/)
 
+## [0.2.8](https://github.com/helmut-hoffer-von-ankershoffen/oe-python-template-example/compare/v0.2.7..0.2.8) - 2025-03-26
+
+### ⚙️ Miscellaneous Tasks
+
+- *(sonarqube)* Workaround sonarqube code duplication bug - ([8d22242](https://github.com/helmut-hoffer-von-ankershoffen/oe-python-template-example/commit/8d22242b7e61c50996840be98e9802ba43d603b0))
+
+## New Contributors ❤️
+
+* @helmut-hoffer-von-ankershoffen made their first contribution
+
 ## [0.2.0](https://github.com/helmut-hoffer-von-ankershoffen/oe-python-template-example/compare/v0.1.19..v0.2.0) - 2025-03-16
 
 ### ⛰️  Features
