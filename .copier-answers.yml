@@ -1,4 +1,4 @@
-_commit: v0.8.2
+_commit: v0.8.4
 _src_path: gh:helmut-hoffer-von-ankershoffen/oe-python-template
 attestations_enabled: true
 author_email: helmuthva@gmail.com
@@ -25,3 +25,4 @@ readthedocs_domain: readthedocs.org
 readthedocs_project_key: oe-python-template-example
 sonarqube_key: helmut-hoffer-von-ankershoffen_oe-python-template-example
 streamlit_project_key: oe-python-template-example
+vercel_function_enabled: true
