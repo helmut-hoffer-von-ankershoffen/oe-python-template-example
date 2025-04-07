@@ -189,7 +189,7 @@ This project is designed with operational excellence in mind, using modern Pytho
   a. [Simple Python script](https://github.com/helmut-hoffer-von-ankershoffen/oe-python-template-example/blob/main/examples/script.py)
   b. [Streamlit web application](https://oe-python-template-example.streamlit.app/) deployed on [Streamlit Community Cloud](https://streamlit.io/cloud)
   c. [Jupyter](https://github.com/helmut-hoffer-von-ankershoffen/oe-python-template-example/blob/main/examples/notebook.ipynb) and [Marimo](https://github.com/helmut-hoffer-von-ankershoffen/oe-python-template-example/blob/main/examples/notebook.py) notebook
-2. [Complete reference documentation](https://oe-python-template-example.readthedocs.io/en/latest/reference.html) on Read the Docs
+2. Complete reference documentation [for the library](https://oe-python-template-example.readthedocs.io/en/latest/lib_reference.html), [for the CLI](https://oe-python-template-example.readthedocs.io/en/latest/cli_reference.html) and [for the API](https://oe-python-template-example.readthedocs.io/en/latest/api_reference_v1.html) on Read the Docs
 3. [Transparent test coverage](https://app.codecov.io/gh/helmut-hoffer-von-ankershoffen/oe-python-template-example) including unit and E2E tests (reported on Codecov)
 4. Matrix tested with [multiple python versions](https://github.com/helmut-hoffer-von-ankershoffen/oe-python-template-example/blob/main/noxfile.py) to ensure compatibility (powered by [Nox](https://nox.thea.codes/en/stable/))
 5. Compliant with modern linting and formatting standards (powered by [Ruff](https://github.com/astral-sh/ruff))
@@ -225,19 +225,16 @@ message = Service.get_hello_world()
 console.print(f"[blue]{message}[/blue]")
 ```
 
-[Show script code](https://github.com/helmut-hoffer-von-ankershoffen/oe-python-template-example/blob/main/examples/script.py) -
-[Read the reference documentation](https://oe-python-template-example.readthedocs.io/en/latest/reference.html)
+[Show script code](https://github.com/helmut-hoffer-von-ankershoffen/oe-python-template-example/blob/main/examples/script.py) - [Read the reference documentation](https://oe-python-template-example.readthedocs.io/en/latest/lib_reference.html)
+
 
 ### Streamlit App
 
-Serve the functionality provided by OE Python Template Example in the web by
-easily integrating the service into a Streamlit application.
+Serve the functionality provided by OE Python Template Example in the web by easily integrating the service into a Streamlit application.
 
-[Try it out!](https://oe-python-template-example.streamlit.app) -
-[Show the code](https://github.com/helmut-hoffer-von-ankershoffen/oe-python-template-example/blob/main/examples/streamlit.py)
+[Try it out!](https://oe-python-template-example.streamlit.app) - [Show the code](https://github.com/helmut-hoffer-von-ankershoffen/oe-python-template-example/blob/main/examples/streamlit.py)
 
 ... or serve the app locally
-
 ```shell
 uv sync --all-extras                                # Install streamlit dependency part of the examples extra, see pyproject.toml
 uv run streamlit run examples/streamlit.py          # Serve on localhost:8501, opens browser
@@ -313,6 +310,9 @@ uvx oe-python-template-example openapi --output-format=json
 uvx oe-python-template-example serve
 ```
 
+See the [reference documentation of the CLI](https://oe-python-template-example.readthedocs.io/en/latest/cli_reference.html) for detailed documentation of all CLI commands and options.
+
+
 ### Environment
 
 The service loads environment variables including support for .env files.
@@ -382,6 +382,9 @@ echo ""
 echo "Shutting down the API container ..."
 docker compose down
 ```
+
+* See the [reference documentation of the API](https://oe-python-template-example.readthedocs.io/en/latest/api_reference_v1.html) for detailed documentation of all API operations and parameters.
+
 
 ## Extra: Lorem Ipsum
 
