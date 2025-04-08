@@ -350,13 +350,13 @@ Or use docker compose
 The .env is passed through from the host to the Docker container.
 
 ```shell
-docker compose run oe-python-template-example --help
-docker compose run oe-python-template-example hello-world
-docker compose run oe-python-template-example echo --help
-docker compose run oe-python-template-example echo "Lorem"
-docker compose run oe-python-template-example echo "Lorem" --json
-docker compose run oe-python-template-example openapi
-docker compose run oe-python-template-example openapi --output-format=json
+docker compose run --remove-orphans oe-python-template-example --help
+docker compose run --remove-orphans oe-python-template-example hello-world
+docker compose run --remove-orphans oe-python-template-example echo --help
+docker compose run --remove-orphans oe-python-template-example echo "Lorem"
+docker compose run --remove-orphans oe-python-template-example echo "Lorem" --json
+docker compose run --remove-orphans oe-python-template-example openapi
+docker compose run --remove-orphans oe-python-template-example openapi --output-format=json
 echo "Running OE Python Template Example's API container as a daemon ..."
 docker compose up -d
 echo "Waiting for the API server to start ..."
