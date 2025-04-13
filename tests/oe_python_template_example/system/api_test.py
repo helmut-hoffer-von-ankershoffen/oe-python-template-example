@@ -4,8 +4,9 @@ from unittest.mock import patch
 
 import pytest
 from fastapi.testclient import TestClient
-from oe_python_template.api import app
-from oe_python_template.system._service import Service
+
+from oe_python_template_example.api import app
+from oe_python_template_example.system._service import Service
 
 HEALTH_PATH_V1 = "/api/v1/system/health"
 HEALTH_PATH_V2 = "/api/v2/system/health"

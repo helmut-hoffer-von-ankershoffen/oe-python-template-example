@@ -82,11 +82,11 @@
 2. Follow the instructions to create a new project and get the DSN. Copy the
    value of the token into your clipboard.
 3. For your local environment: Open your local `.env` file and set the
-   `OE_PYTHON_TEMPLATE_SENTRY_DSN` variable to the value of the token from your
+   `OE_PYTHON_TEMPLATE_EXAMPLE_SENTRY_DSN` variable to the value of the token from your
    clipboard. You can check `.env.example` for the correct format.
 4. For the test, preview and production stage: Goto
    https://github.com/helmut-hoffer-von-ankershoffen/oe-python-template-example/settings/secrets/actions/new
-   and create a new repository secret called `OE_PYTHON_TEMPLATE_SENTRY_DSN`,
+   and create a new repository secret called `OE_PYTHON_TEMPLATE_EXAMPLE_SENTRY_DSN`,
    pasting from your clipboard.
 
 ## Logging and metrics with Logfire
@@ -96,11 +96,11 @@
 2. Follow the instructions to create a new project and get the write token. Copy
    the value of the token into your clipboard.
 3. For your local environment: Open your local `.env` file and set the
-   `OE_PYTHON_TEMPLATE_LOGFIRE_TOKEN` variable to the value of the token from
+   `OE_PYTHON_TEMPLATE_EXAMPLE_LOGFIRE_TOKEN` variable to the value of the token from
    your clipboard. You can check `.env.example` for the correct format.
 4. For the test, preview and production stage: Goto
    https://github.com/helmut-hoffer-von-ankershoffen/oe-python-template-example/settings/secrets/actions/new
-   and create a new repository secret called `OE_PYTHON_TEMPLATE_SENTRY_DSN`,
+   and create a new repository secret called `OE_PYTHON_TEMPLATE_EXAMPLE_SENTRY_DSN`,
    pasting from your clipboard.
 
 ## Uptime monitoring with betterstack
@@ -149,8 +149,8 @@
     clipboard. This is so the smoke test post deploy via GitHub Action can validate
     the deployment was successful.
 14. Optional: In your Vercel project go to Settings > Environment Variables > Environments, and
-      add environment variables with key 'OE_PYTHON_TEMPLATE_LOGFIRE_TOKEN' 
-      and 'OE_PYTHON_TEMPLATE_SENTRY_DSN' - check your `.env` file for the values
+      add environment variables with key 'OE_PYTHON_TEMPLATE_EXAMPLE_LOGFIRE_TOKEN' 
+      and 'OE_PYTHON_TEMPLATE_EXAMPLE_SENTRY_DSN' - check your `.env` file for the values
 
 ## Polishing GitHub repository
 
