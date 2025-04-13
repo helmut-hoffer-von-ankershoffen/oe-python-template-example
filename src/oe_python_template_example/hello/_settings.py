@@ -3,10 +3,15 @@
 from enum import StrEnum
 from typing import Annotated
 
-from pydantic import Field
-from pydantic_settings import BaseSettings, SettingsConfigDict
+from pydantic import BeforeValidator, Field, PlainSerializer, SecretStr
+from pydantic_settings import SettingsConfigDict
 
-from oe_python_template_example.utils import __env_file__, __project_name__
+from oe_python_template_example.utils import (
+    OpaqueSettings,
+    __env_file__,
+    __project_name__,
+    strip_to_none_before_validator,
+)
 
 
 class Language(StrEnum):
@@ -18,7 +23,7 @@ class Language(StrEnum):
 
 # Settings derived from BaseSettings and exported by modules via their __init__.py are automatically registered
 # by the system module e.g. for showing all settings via the system info command.
-class Settings(BaseSettings):
+class Settings(OpaqueSettings):
     """Settings."""
 
     model_config = SettingsConfigDict(
@@ -33,5 +38,17 @@ class Settings(BaseSettings):
         Field(
             Language.US_ENGLISH,
             description="Language to use for output - defaults to US english.",
+        ),
+    ]
+
+    token: Annotated[
+        SecretStr | None,
+        BeforeValidator(strip_to_none_before_validator),  # strip and if empty set to None
+        PlainSerializer(
+            func=OpaqueSettings.serialize_sensitive_info, return_type=str, when_used="always"
+        ),  # allow to unhide sensitive info from CLI or if user presents valid token via API
+        Field(
+            description="Secret token of Hello module.",
+            default=None,
         ),
     ]
