@@ -4,11 +4,11 @@
 > Scroll down for code samples, example requests and responses. Select a language for code samples from the tabs above or the mobile navigation menu.
 
 [Terms of service](https://oe-python-template-example.readthedocs.io/en/latest/)
-Email: [Helmut Hoffer von Ankershoffen](mailto:helmuthva@gmail.com) Web: [Helmut Hoffer von Ankershoffen](https://github.com/helmut-hoffer-von-ankershoffen) 
+Email: [Helmut Hoffer von Ankershoffen](mailto:helmuthva@gmail.com) Web: [Helmut Hoffer von Ankershoffen](https://github.com/helmut-hoffer-von-ankershoffen/oe-python-template-example) 
 
-## Basics
+## system
 
-### echo_echo__text__get
+### health_endpoint_healthz_get
 
 
 
@@ -20,7 +20,7 @@ headers = {
   'Accept': 'application/json'
 }
 
-r = requests.get('/echo/{text}', headers = headers)
+r = requests.get('/healthz', headers = headers)
 
 print(r.json())
 
@@ -32,7 +32,7 @@ const headers = {
   'Accept':'application/json'
 };
 
-fetch('/echo/{text}',
+fetch('/healthz',
 {
   method: 'GET',
 
@@ -46,7 +46,289 @@ fetch('/echo/{text}',
 
 ```
 
-`GET /echo/{text}`
+`GET /healthz`
+
+*Health Endpoint*
+
+Determine aggregate health of the system.
+
+The health is aggregated from all modules making
+    up this system including external dependencies.
+
+The response is to be interpreted as follows:
+- The status can be either UP or DOWN.
+- If the service is healthy, the status will be UP.
+- If the service is unhealthy, the status will be DOWN and a reason will be provided.
+- The response will have a 200 OK status code if the service is healthy,
+    and a 503 Service Unavailable status code if the service is unhealthy.
+
+Args:
+    service (Service): The service instance.
+    response (Response): The FastAPI response object.
+
+Returns:
+    Health: The health of the system.
+
+> Example responses
+
+> 200 Response
+
+```json
+{
+  "components": {
+    "property1": {
+      "components": {},
+      "reason": "string",
+      "status": "UP"
+    },
+    "property2": {
+      "components": {},
+      "reason": "string",
+      "status": "UP"
+    }
+  },
+  "reason": "string",
+  "status": "UP"
+}
+```
+
+#### Responses
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Successful Response|[Health](#schemahealth)|
+
+
+This operation does not require authentication
+
+
+### health_endpoint_system_health_get
+
+
+
+> Code samples
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json'
+}
+
+r = requests.get('/system/health', headers = headers)
+
+print(r.json())
+
+```
+
+```javascript
+
+const headers = {
+  'Accept':'application/json'
+};
+
+fetch('/system/health',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+`GET /system/health`
+
+*Health Endpoint*
+
+Determine aggregate health of the system.
+
+The health is aggregated from all modules making
+    up this system including external dependencies.
+
+The response is to be interpreted as follows:
+- The status can be either UP or DOWN.
+- If the service is healthy, the status will be UP.
+- If the service is unhealthy, the status will be DOWN and a reason will be provided.
+- The response will have a 200 OK status code if the service is healthy,
+    and a 503 Service Unavailable status code if the service is unhealthy.
+
+Args:
+    service (Service): The service instance.
+    response (Response): The FastAPI response object.
+
+Returns:
+    Health: The health of the system.
+
+> Example responses
+
+> 200 Response
+
+```json
+{
+  "components": {
+    "property1": {
+      "components": {},
+      "reason": "string",
+      "status": "UP"
+    },
+    "property2": {
+      "components": {},
+      "reason": "string",
+      "status": "UP"
+    }
+  },
+  "reason": "string",
+  "status": "UP"
+}
+```
+
+#### Responses
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Successful Response|[Health](#schemahealth)|
+
+
+This operation does not require authentication
+
+
+### info_endpoint_system_info_get
+
+
+
+> Code samples
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json'
+}
+
+r = requests.get('/system/info', params={
+  'token': 'string'
+}, headers = headers)
+
+print(r.json())
+
+```
+
+```javascript
+
+const headers = {
+  'Accept':'application/json'
+};
+
+fetch('/system/info?token=string',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+`GET /system/info`
+
+*Info Endpoint*
+
+Determine aggregate info of the system.
+
+The info is aggregated from all modules making up this system.
+
+If the token does not match the setting, a 403 Forbidden status code is returned.
+
+Args:
+    service (Service): The service instance.
+    response (Response): The FastAPI response object.
+    token (str): Token to present.
+
+Returns:
+    dict: The aggregate info of the system.
+
+#### Parameters
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|token|query|string|true|none|
+
+> Example responses
+
+> 200 Response
+
+```json
+{}
+```
+
+#### Responses
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Successful Response|Inline|
+|422|[Unprocessable Entity](https://tools.ietf.org/html/rfc2518#section-10.3)|Validation Error|[HTTPValidationError](#schemahttpvalidationerror)|
+
+#### Response Schema
+
+Status Code **200**
+
+*Response Info Endpoint System Info Get*
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+
+
+This operation does not require authentication
+
+
+## hello
+
+### echo_hello_echo__text__get
+
+
+
+> Code samples
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json'
+}
+
+r = requests.get('/hello/echo/{text}', headers = headers)
+
+print(r.json())
+
+```
+
+```javascript
+
+const headers = {
+  'Accept':'application/json'
+};
+
+fetch('/hello/echo/{text}',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+`GET /hello/echo/{text}`
 
 *Echo*
 
@@ -100,7 +382,7 @@ headers = {
   'Accept': 'application/json'
 }
 
-r = requests.get('/hello-world', headers = headers)
+r = requests.get('/hello/world', headers = headers)
 
 print(r.json())
 
@@ -112,7 +394,7 @@ const headers = {
   'Accept':'application/json'
 };
 
-fetch('/hello-world',
+fetch('/hello/world',
 {
   method: 'GET',
 
@@ -126,7 +408,7 @@ fetch('/hello-world',
 
 ```
 
-`GET /hello-world`
+`GET /hello/world`
 
 *Hello World*
 
@@ -150,158 +432,6 @@ Returns:
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Successful Response|[_HelloWorldResponse](#schema_helloworldresponse)|
-
-
-This operation does not require authentication
-
-
-## Observability
-
-### health_health_get
-
-
-
-> Code samples
-
-```python
-import requests
-headers = {
-  'Accept': 'application/json'
-}
-
-r = requests.get('/health', headers = headers)
-
-print(r.json())
-
-```
-
-```javascript
-
-const headers = {
-  'Accept':'application/json'
-};
-
-fetch('/health',
-{
-  method: 'GET',
-
-  headers: headers
-})
-.then(function(res) {
-    return res.json();
-}).then(function(body) {
-    console.log(body);
-});
-
-```
-
-`GET /health`
-
-*Health*
-
-Check the health of the service.
-
-This endpoint returns the health status of the service.
-The health status can be either UP or DOWN.
-If the service is healthy, the status will be UP.
-If the service is unhealthy, the status will be DOWN and a reason will be provided.
-The response will have a 200 OK status code if the service is healthy,
-and a 500 Internal Server Error status code if the service is unhealthy.
-
-Returns:
-    Health: The health status of the service.
-
-> Example responses
-
-> 200 Response
-
-```json
-{
-  "reason": "string",
-  "status": "UP"
-}
-```
-
-#### Responses
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Successful Response|[Health](#schemahealth)|
-
-
-This operation does not require authentication
-
-
-### health_healthz_get
-
-
-
-> Code samples
-
-```python
-import requests
-headers = {
-  'Accept': 'application/json'
-}
-
-r = requests.get('/healthz', headers = headers)
-
-print(r.json())
-
-```
-
-```javascript
-
-const headers = {
-  'Accept':'application/json'
-};
-
-fetch('/healthz',
-{
-  method: 'GET',
-
-  headers: headers
-})
-.then(function(res) {
-    return res.json();
-}).then(function(body) {
-    console.log(body);
-});
-
-```
-
-`GET /healthz`
-
-*Health*
-
-Check the health of the service.
-
-This endpoint returns the health status of the service.
-The health status can be either UP or DOWN.
-If the service is healthy, the status will be UP.
-If the service is unhealthy, the status will be DOWN and a reason will be provided.
-The response will have a 200 OK status code if the service is healthy,
-and a 500 Internal Server Error status code if the service is unhealthy.
-
-Returns:
-    Health: The health status of the service.
-
-> Example responses
-
-> 200 Response
-
-```json
-{
-  "reason": "string",
-  "status": "UP"
-}
-```
-
-#### Responses
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Successful Response|[Health](#schemahealth)|
 
 
 This operation does not require authentication
@@ -370,6 +500,18 @@ HTTPValidationError
 
 ```json
 {
+  "components": {
+    "property1": {
+      "components": {},
+      "reason": "string",
+      "status": "UP"
+    },
+    "property2": {
+      "components": {},
+      "reason": "string",
+      "status": "UP"
+    }
+  },
   "reason": "string",
   "status": "UP"
 }
@@ -382,6 +524,8 @@ Health
 
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
+|components|object|false|none|none|
+|» **additionalProperties**|[Health](#schemahealth)|false|none|Represents the health status of a service with optional components and failure reasons.- A health object can have child components, i.e. health forms a tree.- Any node in the tree can set itself to DOWN. In this case the node is required    to set the reason attribute. If reason is not set when DOWN,    automatic model validation of the tree will fail.- DOWN'ness is propagated to parent health objects. I.e. the health of a parent    node is automatically set to DOWN if any of its child components are DOWN. The    child components leading to this will be listed in the reason.- The root of the health tree is computed in the system module. The health of other    modules is automatically picked up by the system module.|
 |reason|any|false|none|none|
 
 anyOf
@@ -400,34 +544,7 @@ continued
 
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
-|status|[HealthStatus](#schemahealthstatus)|true|none|Health status enumeration.|
-
-### HealthStatus
-
-
-
-
-
-
-```json
-"UP"
-
-```
-
-HealthStatus
-
-#### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|HealthStatus|string|false|none|Health status enumeration.|
-
-##### Enumerated Values
-
-|Property|Value|
-|---|---|
-|HealthStatus|UP|
-|HealthStatus|DOWN|
+|status|[_HealthStatus](#schema_healthstatus)|true|none|none|
 
 ### ValidationError
 
@@ -473,6 +590,33 @@ continued
 |---|---|---|---|---|
 |msg|string|true|none|none|
 |type|string|true|none|none|
+
+### _HealthStatus
+
+
+
+
+
+
+```json
+"UP"
+
+```
+
+_HealthStatus
+
+#### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|_HealthStatus|string|false|none|none|
+
+##### Enumerated Values
+
+|Property|Value|
+|---|---|
+|_HealthStatus|UP|
+|_HealthStatus|DOWN|
 
 ### _HelloWorldResponse
 

@@ -20,6 +20,7 @@ SBOM_SPDX_PATH = "reports/sbom.spdx"
 JUNIT_XML = "--junitxml=reports/junit.xml"
 CLI_MODULE = "cli"
 API_VERSIONS = ["v1", "v2"]
+DIST_VERCEL_REQUIREMENTS = "dist_vercel/requirements.txt"
 
 
 def _setup_venv(session: nox.Session, all_extras: bool = True) -> None:
@@ -261,7 +262,7 @@ def _generate_openapi_schemas(session: nox.Session) -> None:
     Path("docs/source/_static").mkdir(parents=True, exist_ok=True)
 
     formats = {
-        "yaml": {"ext": "yaml", "args": []},
+        "yaml": {"ext": "yaml", "args": ["--output-format=yaml"]},
         "json": {"ext": "json", "args": ["--output-format=json"]},
     }
 
@@ -271,6 +272,7 @@ def _generate_openapi_schemas(session: nox.Session) -> None:
             with output_path.open("w", encoding="utf-8") as f:
                 cmd_args = [
                     "oe-python-template-example",
+                    "system",
                     "openapi",
                     f"--api-version={version}",
                     *format_info["args"],
@@ -415,8 +417,8 @@ def docs(session: nox.Session) -> None:
 
     _generate_readme(session)
     _generate_cli_reference(session)
-    _generate_api_reference(session)
     _generate_openapi_schemas(session)
+    _generate_api_reference(session)
     _generate_attributions(session, Path(LICENSES_JSON_PATH))
 
     # Build HTML docs
@@ -463,13 +465,45 @@ def docs_pdf(session: nox.Session) -> None:
 @nox.session(python=["3.11", "3.12", "3.13"])
 def test(session: nox.Session) -> None:
     """Run tests with pytest."""
-    _setup_venv(session, True)
+    _setup_venv(session)
+    session.run("rm", "-rf", ".coverage", external=True)
+
+    # Build pytest arguments with skip_with_act filter if needed
     pytest_args = ["pytest", "--disable-warnings", JUNIT_XML, "-n", "auto", "--dist", "loadgroup"]
     if _is_act_environment():
         pytest_args.extend(["-k", NOT_SKIP_WITH_ACT])
-    if session.posargs:
-        pytest_args.extend(session.posargs)
+    pytest_args.extend(["-m", "not sequential"])
+    pytest_args.extend(session.posargs)
+
     session.run(*pytest_args)
+
+    # Sequential tests
+    sequential_args = [
+        "pytest",
+        "--cov-append",
+        "--disable-warnings",
+        JUNIT_XML,
+        "-n",
+        "auto",
+        "--dist",
+        "loadgroup",
+    ]
+    if _is_act_environment():
+        sequential_args.extend(["-k", NOT_SKIP_WITH_ACT])
+    sequential_args.extend(["-m", "sequential"])
+    sequential_args.extend(session.posargs)
+
+    session.run(*sequential_args)
+
+    session.run(
+        "bash",
+        "-c",
+        (
+            "docker compose ls --format json | jq -r '.[].Name' | "
+            "grep ^pytest | xargs -I {} docker compose -p {} down --remove-orphans"
+        ),
+        external=True,
+    )
 
 
 @nox.session(default=False)
@@ -483,11 +517,11 @@ def dist_vercel(session: nox.Session) -> None:
 
     # Generate requirements.txt including referencing the wheel
     session.run("uv", "sync", "--active", "--no-dev", external=True)
-    with Path("dist_vercel/requirements.txt").open("w", encoding="utf-8") as outfile:
+    with Path(DIST_VERCEL_REQUIREMENTS).open("w", encoding="utf-8") as outfile:
         session.run("uv", "pip", "freeze", "--exclude-editable", "--no-progress", stdout=outfile, external=True)
-    with Path("dist_vercel/requirements.txt").open("r", encoding="utf-8") as infile:
+    with Path(DIST_VERCEL_REQUIREMENTS).open("r", encoding="utf-8") as infile:
         lines = infile.readlines()
-    with Path("dist_vercel/requirements.txt").open("w", encoding="utf-8") as outfile:
+    with Path(DIST_VERCEL_REQUIREMENTS).open("w", encoding="utf-8") as outfile:
         # Remove first line if it starts with "Using "
         if lines and lines[0].startswith("Using "):
             outfile.writelines(lines[1:])

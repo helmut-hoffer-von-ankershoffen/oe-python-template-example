@@ -3,7 +3,7 @@
 from dotenv import load_dotenv
 from rich.console import Console
 
-from oe_python_template_example import Service
+from oe_python_template_example.hello import Service
 
 console = Console()
 

@@ -1,6 +1,6 @@
 # CLI Reference
 
-Command Line Interface of OE Python Template Example
+Command Line Interface of
 
 **Usage**:
 
@@ -14,51 +14,44 @@ $ oe-python-template-example [OPTIONS] COMMAND [ARGS]...
 * `--show-completion`: Show completion for the current shell, to copy it or customize the installation.
 * `--help`: Show this message and exit.
 
+🧠 OE Python Template Example v0.3.5 - built with love in Berlin 🐻
+
 **Commands**:
 
-* `health`: Indicate if service is healthy.
-* `info`: Print info about service configuration.
+* `hello`: Hello commands
+* `system`: System commands
+
+## `oe-python-template-example hello`
+
+Hello commands
+
+**Usage**:
+
+```console
+$ oe-python-template-example hello [OPTIONS] COMMAND [ARGS]...
+```
+
+**Options**:
+
+* `--help`: Show this message and exit.
+
+**Commands**:
+
 * `echo`: Echo the text.
-* `hello-world`: Print hello world message and what&#x27;s in...
-* `serve`: Start the API server.
-* `openapi`: Dump the OpenAPI specification to stdout...
+* `world`: Print hello world message and what&#x27;s in...
 
-## `oe-python-template-example health`
-
-Indicate if service is healthy.
-
-**Usage**:
-
-```console
-$ oe-python-template-example health [OPTIONS]
-```
-
-**Options**:
-
-* `--help`: Show this message and exit.
-
-## `oe-python-template-example info`
-
-Print info about service configuration.
-
-**Usage**:
-
-```console
-$ oe-python-template-example info [OPTIONS]
-```
-
-**Options**:
-
-* `--help`: Show this message and exit.
-
-## `oe-python-template-example echo`
+### `oe-python-template-example hello echo`
 
 Echo the text.
 
+Args:
+    text (str): The text to echo.
+    json (bool): Print as JSON.
+
 **Usage**:
 
 ```console
-$ oe-python-template-example echo [OPTIONS] [TEXT]
+$ oe-python-template-example hello echo [OPTIONS] [TEXT]
 ```
 
 **Arguments**:
@@ -70,28 +63,96 @@ $ oe-python-template-example echo [OPTIONS] [TEXT]
 * `--json / --no-json`: Print as JSON  [default: no-json]
 * `--help`: Show this message and exit.
 
-## `oe-python-template-example hello-world`
+### `oe-python-template-example hello world`
 
 Print hello world message and what&#x27;s in the environment variable THE_VAR.
 
 **Usage**:
 
 ```console
-$ oe-python-template-example hello-world [OPTIONS]
+$ oe-python-template-example hello world [OPTIONS]
 ```
 
 **Options**:
 
 * `--help`: Show this message and exit.
 
-## `oe-python-template-example serve`
+## `oe-python-template-example system`
 
-Start the API server.
+System commands
 
 **Usage**:
 
 ```console
-$ oe-python-template-example serve [OPTIONS]
+$ oe-python-template-example system [OPTIONS] COMMAND [ARGS]...
+```
+
+**Options**:
+
+* `--help`: Show this message and exit.
+
+**Commands**:
+
+* `health`: Determine and print system health.
+* `info`: Determine and print system info.
+* `serve`: Start the webservice API server.
+* `openapi`: Dump the OpenAPI specification.
+* `fail`: Fail by dividing by zero.
+* `sleep`: Sleep given for given number of seconds.
+
+### `oe-python-template-example system health`
+
+Determine and print system health.
+
+Args:
+    output_format (OutputFormat): Output format (JSON or YAML).
+
+**Usage**:
+
+```console
+$ oe-python-template-example system health [OPTIONS]
+```
+
+**Options**:
+
+* `--output-format [yaml|json]`: Output format  [default: json]
+* `--help`: Show this message and exit.
+
+### `oe-python-template-example system info`
+
+Determine and print system info.
+
+Args:
+    include_environ (bool): Include environment variables.
+    filter_secrets (bool): Filter secrets from the output.
+    output_format (OutputFormat): Output format (JSON or YAML).
+
+**Usage**:
+
+```console
+$ oe-python-template-example system info [OPTIONS]
+```
+
+**Options**:
+
+* `--include-environ / --no-include-environ`: Include environment variables  [default: no-include-environ]
+* `--filter-secrets / --no-filter-secrets`: Filter secrets  [default: filter-secrets]
+* `--output-format [yaml|json]`: Output format  [default: json]
+* `--help`: Show this message and exit.
+
+### `oe-python-template-example system serve`
+
+Start the webservice API server.
+
+Args:
+    host (str): Host to bind the server to.
+    port (int): Port to bind the server to.
+    watch (bool): Enable auto-reload.
+
+**Usage**:
+
+```console
+$ oe-python-template-example system serve [OPTIONS]
 ```
 
 **Options**:
@@ -101,18 +162,61 @@ $ oe-python-template-example serve [OPTIONS]
 * `--watch / --no-watch`: Enable auto-reload  [default: watch]
 * `--help`: Show this message and exit.
 
-## `oe-python-template-example openapi`
+### `oe-python-template-example system openapi`
 
-Dump the OpenAPI specification to stdout (YAML by default).
+Dump the OpenAPI specification.
+
+Args:
+    api_version (str): API version to dump.
+    output_format (OutputFormat): Output format (JSON or YAML).
+
+Raises:
+    typer.Exit: If an invalid API version is provided.
 
 **Usage**:
 
 ```console
-$ oe-python-template-example openapi [OPTIONS]
+$ oe-python-template-example system openapi [OPTIONS]
 ```
 
 **Options**:
 
-* `--api-version [v1|v2]`: API Version  [default: v1]
-* `--output-format [yaml|json]`: Output format  [default: yaml]
+* `--api-version TEXT`: API Version. Available: v1, v2  [default: v1]
+* `--output-format [yaml|json]`: Output format  [default: json]
+* `--help`: Show this message and exit.
+
+### `oe-python-template-example system fail`
+
+Fail by dividing by zero.
+
+- Used to validate error handling and instrumentation.
+
+**Usage**:
+
+```console
+$ oe-python-template-example system fail [OPTIONS]
+```
+
+**Options**:
+
+* `--help`: Show this message and exit.
+
+### `oe-python-template-example system sleep`
+
+Sleep given for given number of seconds.
+
+Args:
+    seconds (int): Number of seconds to sleep.
+
+- Used to validate performance profiling.
+
+**Usage**:
+
+```console
+$ oe-python-template-example system sleep [OPTIONS]
+```
+
+**Options**:
+
+* `--seconds INTEGER`: Duration in seconds  [default: 10]
 * `--help`: Show this message and exit.

@@ -1,1 +1,1 @@
-"""Test suite for OE Python Template Example."""
+"""Test suite of OE Python Template Example."""

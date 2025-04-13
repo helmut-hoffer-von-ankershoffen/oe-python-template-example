@@ -7,10 +7,8 @@ OE Python Template Example.
 
 import streamlit as st
 
-from oe_python_template_example import (
-    Service,
-    __version__,
-)
+from oe_python_template_example.hello import Service
+from oe_python_template_example.utils import __version__
 
 sidebar = st.sidebar
 sidebar.write(
