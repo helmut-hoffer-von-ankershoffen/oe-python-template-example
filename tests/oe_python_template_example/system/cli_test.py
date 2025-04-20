@@ -50,14 +50,15 @@ def test_cli_info_secrets(runner: CliRunner) -> None:
         assert THE_VALUE in result.output
 
 
+@pytest.mark.timeout(10)
 @patch("uvicorn.run")
 def test_cli_serve(mock_uvicorn_run, runner: CliRunner) -> None:
     """Check serve command starts the server."""
-    result = runner.invoke(cli, ["system", "serve", "--host", "127.0.0.1", "--port", "8000", "--no-watch"])
+    result = runner.invoke(cli, ["system", "serve", "--host", "127.0.0.1", "--port", "8000", "--no-watch", "--no-app"])
     assert result.exit_code == 0
-    assert "Starting API server at http://127.0.0.1:8000" in result.output
+    assert "Starting webservice API server at http://127.0.0.1:8000" in result.output
     mock_uvicorn_run.assert_called_once_with(
-        "oe_python_template_example.api:app",
+        "oe_python_template_example.api:api",
         host="127.0.0.1",
         port=8000,
         reload=False,

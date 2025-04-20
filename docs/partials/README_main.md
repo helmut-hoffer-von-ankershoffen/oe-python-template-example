@@ -31,13 +31,15 @@ Projects generated with this template come with a comprehensive development tool
 17. Changelog and release notes generated with [git-cliff](https://git-cliff.org/)
 18. Documentation generated with [Sphinx](https://www.sphinx-doc.org/en/master/) including reference documentation for the library, CLI, and API
 19. Documentation published to [Read The Docs](https://readthedocs.org/) including generation of PDF and single page HTML versions
-20. Interactive OpenAPI specification with [Swagger](https://swagger.io/)
-21. Python package published to [PyPI](https://pypi.org/)
-22. Docker images published to [Docker.io](https://hub.docker.com/) and [GitHub Container Registry](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry) with [artifact attestations](https://docs.github.com/en/actions/security-for-github-actions/using-artifact-attestations/using-artifact-attestations-to-establish-provenance-for-builds)
-23. One-click development environments with [Dev Containers](https://code.visualstudio.com/docs/devcontainers/containers) and [GitHub Codespaces](https://github.com/features/codespaces)
-24. Settings for use with [VSCode](https://code.visualstudio.com/)
-25. Settings and custom instructions for use with [GitHub Copilot](https://docs.github.com/en/copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot)
-26. API deployed as serverless function to [Vercel](https://vercel.com/) (optional)
+20. Documentation including dynamic badges, setup instructions, contribution guide and security policy
+21. Interactive OpenAPI specification with [Swagger](https://swagger.io/)
+22. Python package published to [PyPI](https://pypi.org/)
+23. Multi-stage build of fat and slim (no-extras) Docker images, app running nonroot
+24. Mult-arch Docker images published to [Docker.io](https://hub.docker.com/) and [GitHub Container Registry](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry) with [artifact attestations](https://docs.github.com/en/actions/security-for-github-actions/using-artifact-attestations/using-artifact-attestations-to-establish-provenance-for-builds)
+25. One-click development environments with [Dev Containers](https://code.visualstudio.com/docs/devcontainers/containers) and [GitHub Codespaces](https://github.com/features/codespaces)
+26. Settings for use with [VSCode](https://code.visualstudio.com/)
+27. Settings and custom instructions for use with [GitHub Copilot](https://docs.github.com/en/copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot)
+28. API deployed as serverless function to [Vercel](https://vercel.com/) (optional)
 
 ### Application Features
 
@@ -45,17 +47,20 @@ Beyond development tooling, projects generated with this template include the co
 
 1. Usable as library with "Hello" module exposing a simple service that can say "Hello, world!" and echo utterances.
 2. Command-line interface (CLI) with [Typer](https://typer.tiangolo.com/)
-3. Versioned webservice API with [FastAPI](https://fastapi.tiangolo.com/)
-4. [Interactive Jupyter notebook](https://jupyter.org/) and [reactive Marimo notebook](https://marimo.io/)
-5. Simple Web UI with [Streamlit](https://streamlit.io/)
-6. Configuration to run the CLI and API in a Docker container including setup for [Docker Compose](https://docs.docker.com/get-started/docker-concepts/the-basics/what-is-docker-compose/)
+2. Versioned webservice API with [FastAPI](https://fastapi.tiangolo.com/)
+3. Comfortable command-line interface (CLI) with
+   [Typer](https://typer.tiangolo.com/)
+4. Cross-platform Graphical User Interface (GUI) with
+   [NiceGUI](https://nicegui.io/) running in native window
+5. [Interactive Jupyter notebook](https://jupyter.org/) and [reactive Marimo notebook](https://marimo.io/)
+6. Simple Web UI with [Streamlit](https://streamlit.io/)
 7. Validation and settings management with [pydantic](https://docs.pydantic.dev/)
-8. Info command enabling to inspect the runtime, compiled settings, and further info provided dynamically by modules
-9. Health endpoint exposing system health dynamically aggregated from all modules and dependencies
-10. Flexible logging and instrumentation, including support for [Sentry](https://sentry.io/) and [Logfire](https://logfire.dev/) 
-11. Hello service demonstrates use of custom real time metrics collected via Logfire
-12. Modular architecture including auto-registration of services, CLI commands and API routes exposed by modules
-13. Documentation including dynamic badges, setup instructions, contribution guide and security policy
+8. Flexible logging and instrumentation, including support for [Sentry](https://sentry.io/) and [Logfire](https://logfire.dev/) 
+9. Modular architecture including auto-registration of services, CLI commands, API routes and GUI pages exposed by domain modules
+10. System module providing aggregate health and info to the runtime, compiled settings, and further info provided by domain modules
+11. Health and Info available via command, webservice API (info passsword protected) and GUI
+12. Hello service demonstrates use of custom real time metrics collected via Logfire
+13. Configuration to run the CLI and API in a Docker container including setup for [Docker Compose](https://docs.docker.com/get-started/docker-concepts/the-basics/what-is-docker-compose/)
 
 Explore [here](https://github.com/helmut-hoffer-von-ankershoffen/oe-python-template-example) for what's generated out of the box.
 
@@ -122,9 +127,12 @@ pip install oe-python-template-example        # add dependency to your project
 Executing the command line interface (CLI) in an isolated Python environment is just as easy:
 
 ```shell
-uvx oe-python-template-example hello-world       # prints "Hello, world! [..]"
-uvx oe-python-template-example serve             # serves web API
-uvx oe-python-template-example serve --port=4711 # serves web API on port 4711
+uvx oe-python-template-example hello world               # prints "Hello, world! [..]"
+uvx oe-python-template-example hello echo "Lorem Ipsum"  # echos "Lorem Ipsum"
+uvx oe-python-template-example gui                       # opens the graphical user interface (GUI)
+uvx oe-python-template-example system serve              # serves web API
+uvx oe-python-template-example system serve --port=4711  # serves web API on port 4711
+uvx oe-python-template-example system openapi            # serves web API on port 4711
 ```
 
 Notes:
@@ -137,10 +145,11 @@ The CLI provides extensive help:
 
 ```shell
 uvx oe-python-template-example --help                # all CLI commands
-uvx oe-python-template-example hello-world --help    # help for specific command
-uvx oe-python-template-example echo --help
-uvx oe-python-template-example openapi --help
-uvx oe-python-template-example serve --help
+uvx oe-python-template-example hello world --help    # help for specific command
+uvx oe-python-template-example hello echo --help
+uvx oe-python-template-example gui --help
+uvx oe-python-template-example system serve --help
+uvx oe-python-template-example system openapi --help
 ```
 
 
@@ -268,6 +277,7 @@ uvx oe-python-template-example hello world
 uvx oe-python-template-example hello echo --help
 uvx oe-python-template-example hello echo "Lorem"
 uvx oe-python-template-example hello echo "Lorem" --json
+uvx oe-python-template-example gui
 uvx oe-python-template-example system info
 uvx oe-python-template-example system health
 uvx oe-python-template-example system openapi
@@ -351,6 +361,15 @@ echo ""
 echo "Shutting down the API container ..."
 docker compose down
 ```
+
+#### Slim
+
+The default Docker image includes all extras. Additionally a slim image is provided, with no extras. Run as follows
+
+```shell
+docker compose run --remove-orphans oe-python-template-example-slim --help
+```
+
 
 * See the [reference documentation of the API](https://oe-python-template-example.readthedocs.io/en/latest/api_reference_v1.html) for detailed documentation of all API operations and parameters.
 

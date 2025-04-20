@@ -1,6 +1,6 @@
 # CLI Reference
 
-Command Line Interface of
+Command Line Interface of OE Python Template Example
 
 **Usage**:
 
@@ -18,8 +18,40 @@ $ oe-python-template-example [OPTIONS] COMMAND [ARGS]...
 
 **Commands**:
 
+* `gui`: Start graphical user interface (GUI) in...
+* `notebook`: Start notebook in web browser.
 * `hello`: Hello commands
 * `system`: System commands
+
+## `oe-python-template-example gui`
+
+Start graphical user interface (GUI) in native window.
+
+**Usage**:
+
+```console
+$ oe-python-template-example gui [OPTIONS]
+```
+
+**Options**:
+
+* `--help`: Show this message and exit.
+
+## `oe-python-template-example notebook`
+
+Start notebook in web browser.
+
+**Usage**:
+
+```console
+$ oe-python-template-example notebook [OPTIONS]
+```
+
+**Options**:
+
+* `--host TEXT`: Host to bind the server to  [default: 127.0.0.1]
+* `--port INTEGER`: Port to bind the server to  [default: 8001]
+* `--help`: Show this message and exit.
 
 ## `oe-python-template-example hello`
 
@@ -95,7 +127,7 @@ $ oe-python-template-example system [OPTIONS] COMMAND [ARGS]...
 
 * `health`: Determine and print system health.
 * `info`: Determine and print system info.
-* `serve`: Start the webservice API server.
+* `serve`: Start the web server, hosting the...
 * `openapi`: Dump the OpenAPI specification.
 * `fail`: Fail by dividing by zero.
 * `sleep`: Sleep given for given number of seconds.
@@ -142,12 +174,15 @@ $ oe-python-template-example system info [OPTIONS]
 
 ### `oe-python-template-example system serve`
 
-Start the webservice API server.
+Start the web server, hosting the graphical web application and/or webservice API.
 
 Args:
+    app (bool): Enable web application.
+    api (bool): Enable webservice API.
     host (str): Host to bind the server to.
     port (int): Port to bind the server to.
-    watch (bool): Enable auto-reload.
+    watch (bool): Enable auto-reload on changes of source code.
+    open_browser (bool): Open app in browser after starting the server.
 
 **Usage**:
 
@@ -157,9 +192,12 @@ $ oe-python-template-example system serve [OPTIONS]
 
 **Options**:
 
+* `--app / --no-app`: Enable web application  [default: app]
+* `--api / --no-api`: Enable webservice API  [default: api]
 * `--host TEXT`: Host to bind the server to  [default: 127.0.0.1]
 * `--port INTEGER`: Port to bind the server to  [default: 8000]
-* `--watch / --no-watch`: Enable auto-reload  [default: watch]
+* `--watch / --no-watch`: Enable auto-reload on changes of source code  [default: watch]
+* `--open-browser / --no-open-browser`: Open app in browser after starting the server  [default: no-open-browser]
 * `--help`: Show this message and exit.
 
 ### `oe-python-template-example system openapi`

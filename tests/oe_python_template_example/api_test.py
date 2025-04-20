@@ -3,13 +3,13 @@
 import pytest
 from fastapi.testclient import TestClient
 
-from oe_python_template_example.api import app
+from oe_python_template_example.api import api
 
 
 @pytest.fixture
 def client() -> TestClient:
     """Provide a FastAPI test client fixture."""
-    return TestClient(app)
+    return TestClient(api)
 
 
 def test_root_endpoint_returns_404(client: TestClient) -> None:

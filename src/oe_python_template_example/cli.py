@@ -1,6 +1,7 @@
 """CLI (Command Line Interface) of OE Python Template Example."""
 
 import sys
+from importlib.util import find_spec
 
 import typer
 
@@ -10,8 +11,40 @@ from .utils import __version__, boot, console, get_logger, prepare_cli
 boot(MODULES_TO_INSTRUMENT)
 logger = get_logger(__name__)
 
-cli = typer.Typer(help="Command Line Interface of ")
+cli = typer.Typer(help="Command Line Interface of OE Python Template Example")
 prepare_cli(cli, f"🧠 OE Python Template Example v{__version__} - built with love in Berlin 🐻")
+
+
+if find_spec("nicegui"):
+
+    @cli.command()
+    def gui() -> None:
+        """Start graphical user interface (GUI) in native window."""
+        from .utils import gui_run  # noqa: PLC0415
+
+        gui_run(native=True, with_api=False, title="OE Python Template Example", icon="🧠")
+
+
+if find_spec("marimo"):
+    from typing import Annotated
+
+    import uvicorn
+
+    from .utils import create_marimo_app
+
+    @cli.command()
+    def notebook(
+        host: Annotated[str, typer.Option(help="Host to bind the server to")] = "127.0.0.1",
+        port: Annotated[int, typer.Option(help="Port to bind the server to")] = 8001,
+    ) -> None:
+        """Start notebook in web browser."""
+        console.print(f"Starting marimo notebook server at http://{host}:{port}")
+        uvicorn.run(
+            create_marimo_app(),
+            host=host,
+            port=port,
+        )
+
 
 if __name__ == "__main__":  # pragma: no cover
     try:

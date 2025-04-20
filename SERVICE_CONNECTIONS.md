@@ -136,7 +136,7 @@
    and create a new repository secret called `VERCEL_PROJECT_ID`, copy and
    pasting from the output of step 6
 10. Goto `https://vercel.com/account/tokens` and create a new token called
-   `oe-python-template`. Copy the value of the token into your clipboard.
+   `oe-python-template-example`. Copy the value of the token into your clipboard.
 11. Goto
     https://github.com/helmut-hoffer-von-ankershoffen/oe-python-template-example/settings/secrets/actions/new
     and create a new repository secret called `VERCEL_TOKEN`, pasting from your
