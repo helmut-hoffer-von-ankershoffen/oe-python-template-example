@@ -1,5 +1,15 @@
 [🧠 OE Python Template Example](https://oe-python-template-example.readthedocs.io/en/latest/)
 
+## [0.4.2](https://github.com/helmut-hoffer-von-ankershoffen/oe-python-template-example/compare/v0.4.1..0.4.2) - 2025-04-20
+
+### ⚙️ Miscellaneous Tasks
+
+- *(bump)* Prep new version - ([30feee8](https://github.com/helmut-hoffer-von-ankershoffen/oe-python-template-example/commit/30feee8692865ee8bcc885134491b5628bbd18b1))
+
+## New Contributors ❤️
+
+* @helmut-hoffer-von-ankershoffen made their first contribution
+
 ## [0.2.13](https://github.com/helmut-hoffer-von-ankershoffen/oe-python-template-example/compare/v0.2.12..v0.2.13) - 2025-04-01
 
 ### ⚙️ Miscellaneous Tasks
