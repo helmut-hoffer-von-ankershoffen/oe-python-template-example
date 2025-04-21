@@ -1,6 +1,13 @@
 [🧠 OE Python Template Example](https://oe-python-template-example.readthedocs.io/en/latest/)
 
-## [0.4.7](https://github.com/helmut-hoffer-von-ankershoffen/oe-python-template-example/compare/v0.4.6..0.4.7) - 2025-04-21
+## [0.4.8](https://github.com/helmut-hoffer-von-ankershoffen/oe-python-template-example/compare/v0.4.7..0.4.8) - 2025-04-21
+
+### 🎨 Styling
+
+- Test/health - ([c693fdd](https://github.com/helmut-hoffer-von-ankershoffen/oe-python-template-example/commit/c693fdd0fae7c747e02bbecd34377f6b30cda746))
+
+
+## [0.4.7](https://github.com/helmut-hoffer-von-ankershoffen/oe-python-template-example/compare/v0.4.6..v0.4.7) - 2025-04-21
 
 ### 🎨 Styling
 
