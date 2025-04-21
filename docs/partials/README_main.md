@@ -1,130 +1,26 @@
-Example project scaffolded and kept up to date with OE Python Template (oe-python-template).
-
-### Scaffolding
-
-This [Copier](https://copier.readthedocs.io/en/stable/) template enables you to quickly generate (scaffold) a Python package with fully functioning build and test automation:
-
-1. Projects generated from this template can be [easily updated](https://copier.readthedocs.io/en/stable/updating/) to benefit from improvements and new features of the template.
-2. During project generation, you can flexibly configure naming of the Python distribution, import package, main author, GitHub repository, organization, and many other aspects to match your specific requirements (see [copier.yml](https://github.com/helmut-hoffer-von-ankershoffen/oe-python-template/blob/main/copier.yml) for all available options).
-
-### Development Infrastructure
-
-Projects generated with this template come with a comprehensive development toolchain and quality assurance framework that supports the entire software development lifecycle - from coding and testing to documentation, release management, and compliance auditing. This infrastructure automates routine tasks, enforces code quality standards, and streamlines the path to production:
-
-1. Linting with [Ruff](https://github.com/astral-sh/ruff)
-2. Static type checking with [mypy](https://mypy.readthedocs.io/en/stable/)
-3. Complete set of [pre-commit](https://pre-commit.com/) hooks including [detect-secrets](https://github.com/Yelp/detect-secrets) and [pygrep](https://github.com/pre-commit/pygrep-hooks)
-4. Unit and E2E testing with [pytest](https://docs.pytest.org/en/stable/) including parallel test execution
-5. Matrix testing in multiple environments with [nox](https://nox.thea.codes/en/stable/)
-6. Test coverage reported with [Codecov](https://codecov.io/) and published as release artifact
-7. CI/CD pipeline automated with [GitHub Actions](https://github.com/features/actions)
-8. CI/CD pipeline can be run locally with [act](https://github.com/nektos/act)
-9. Code quality and security checks with [SonarQube](https://www.sonarsource.com/products/sonarcloud) and [GitHub CodeQL](https://codeql.github.com/)
-10. Dependency monitoring and vulnerability scanning with [pip-audit](https://pypi.org/project/pip-audit/), [trivy](https://trivy.dev/latest/), [Renovate](https://github.com/renovatebot/renovate), and [GitHub Dependabot](https://docs.github.com/en/code-security/getting-started/dependabot-quickstart-guide)
-11. Error monitoring and profiling with [Sentry](https://sentry.io/)  (optional)
-12. Logging and metrics with [Logfire](https://logfire.dev/) (optional)
-13. Prepared for uptime monitoring with [betterstack](https://betterstack.com/) or alternatives
-13. Licenses of dependencies extracted with [pip-licenses](https://pypi.org/project/pip-licenses/), matched with allow list, and published as release artifacts in CSV and JSON format for further compliance checks
-14. Generation of attributions from extracted licenses
-15. Software Bill of Materials (SBOM) generated in [CycloneDX](https://cyclonedx.org/) and [SPDX](https://spdx.dev/) formats with [cyclonedx-python](https://github.com/CycloneDX/cyclonedx-python) resp. [trivy](https://trivy.dev/latest/), published as release artifacts
-16. Version and release management with [bump-my-version](https://callowayproject.github.io/bump-my-version/)
-17. Changelog and release notes generated with [git-cliff](https://git-cliff.org/)
-18. Documentation generated with [Sphinx](https://www.sphinx-doc.org/en/master/) including reference documentation for the library, CLI, and API
-19. Documentation published to [Read The Docs](https://readthedocs.org/) including generation of PDF and single page HTML versions
-20. Documentation including dynamic badges, setup instructions, contribution guide and security policy
-21. Interactive OpenAPI specification with [Swagger](https://swagger.io/)
-22. Python package published to [PyPI](https://pypi.org/)
-23. Multi-stage build of fat and slim (no-extras) Docker images, app running nonroot
-24. Mult-arch Docker images published to [Docker.io](https://hub.docker.com/) and [GitHub Container Registry](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry) with [artifact attestations](https://docs.github.com/en/actions/security-for-github-actions/using-artifact-attestations/using-artifact-attestations-to-establish-provenance-for-builds)
-25. One-click development environments with [Dev Containers](https://code.visualstudio.com/docs/devcontainers/containers) and [GitHub Codespaces](https://github.com/features/codespaces)
-26. Settings for use with [VSCode](https://code.visualstudio.com/)
-27. Settings and custom instructions for use with [GitHub Copilot](https://docs.github.com/en/copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot)
-28. API deployed as serverless function to [Vercel](https://vercel.com/) (optional)
-
-### Application Features
-
-Beyond development tooling, projects generated with this template include the code, documentation, and configuration of a fully functioning application and service. This reference implementation serves as a starting point for your own business logic with modern patterns and enterprise practices already in place:
-
-1. Usable as library with "Hello" module exposing a simple service that can say "Hello, world!" and echo utterances.
-2. Command-line interface (CLI) with [Typer](https://typer.tiangolo.com/)
-2. Versioned webservice API with [FastAPI](https://fastapi.tiangolo.com/)
-3. Comfortable command-line interface (CLI) with
-   [Typer](https://typer.tiangolo.com/)
-4. Cross-platform Graphical User Interface (GUI) with
-   [NiceGUI](https://nicegui.io/) running in native window
-5. [Interactive Jupyter notebook](https://jupyter.org/) and [reactive Marimo notebook](https://marimo.io/)
-6. Simple Web UI with [Streamlit](https://streamlit.io/)
-7. Validation and settings management with [pydantic](https://docs.pydantic.dev/)
-8. Flexible logging and instrumentation, including support for [Sentry](https://sentry.io/) and [Logfire](https://logfire.dev/) 
-9. Modular architecture including auto-registration of services, CLI commands, API routes and GUI pages exposed by domain modules
-10. System module providing aggregate health and info to the runtime, compiled settings, and further info provided by domain modules
-11. Health and Info available via command, webservice API (info passsword protected) and GUI
-12. Hello service demonstrates use of custom real time metrics collected via Logfire
-13. Configuration to run the CLI and API in a Docker container including setup for [Docker Compose](https://docs.docker.com/get-started/docker-concepts/the-basics/what-is-docker-compose/)
-
-Explore [here](https://github.com/helmut-hoffer-von-ankershoffen/oe-python-template-example) for what's generated out of the box.
-
-## Generate a new project
-
-To generate, build and release a fully functioning project in a few minutes, follow these 5 steps:
-
-**Step 1**: Execute the following command to install or update tooling.
-```shell
-# Install Homebrew, uv package manager, copier and further dev tools
-curl -LsSf https://raw.githubusercontent.com/helmut-hoffer-von-ankershoffen/oe-python-template/HEAD/install.sh | sh
-```
-
-**Step 2**: [Create a repository on GitHub](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-new-repository), clone to your local machine, and change into it's directory.
-
-**Step 3**: Execute the following command to generate a new project based on this template.
-```shell
-# Ensure to stand in your freshly created git repository before executing this command
-copier copy --trust gh:helmut-hoffer-von-ankershoffen/oe-python-template .
-```
-
-**Step 4**: Execute the following commands to push your initial commit to GitHub.
-```shell
-git add .
-git commit -m "chore: Initial commit"
-git push
-```
-
-Check the [Actions tab](https://github.com/helmut-hoffer-von-ankershoffen/oe-python-template-example/actions) of your GitHub repository: The CI/CD workflow of your project is already running!
-
-The workflow will fail at the SonarQube step, as this external service is not yet configured for our new repository. We will configure SonarQube and other services in the next step!
-
-Notes:
-1. Check out [this manual](https://docs.github.com/en/authentication/managing-commit-signature-verification/telling-git-about-your-signing-key) on how to set up signed commits
-
-**Step 5**: Follow the [instructions](SERVICE_CONNECTIONS.md) to wire up
-external services such as CloudCov, SonarQube Cloud, Read The Docs, Docker.io, and Streamlit Community Cloud.
-
-**Step 6**: Release the first version of your project
-```shell
-make bump
-```
-Notes:
-1. You can remove the above sections - from "Scaffolding" to this notes - post having successfully generated your project.
-2. The following sections refer to the dummy application and service generated into the `tests` and `src` folder by this template.
-   Use the documentation and code as inspiration, adapt to your business logic, or remove and start documenting and coding from scratch.
-
+Example project scaffolded and kept up to date with OE Python Template
+(oe-python-template).
 
 ## Overview
 
-Adding OE Python Template Example to your project as a dependency is easy. See below for usage examples.
+Adding OE Python Template Example to your project as a dependency is easy. See
+below for usage examples.
 
 ```shell
 uv add oe-python-template-example             # add dependency to your project
 ```
 
-If you don't have uv installed follow [these instructions](https://docs.astral.sh/uv/getting-started/installation/). If you still prefer pip over the modern and fast package manager [uv](https://github.com/astral-sh/uv), you can install the library like this:
-
+If you don't have uv installed follow
+[these instructions](https://docs.astral.sh/uv/getting-started/installation/).
+If you still prefer pip over the modern and fast package manager
+[uv](https://github.com/astral-sh/uv), you can install the library like this:
 
 ```shell
 pip install oe-python-template-example        # add dependency to your project
 ```
 
-Executing the command line interface (CLI) in an isolated Python environment is just as easy:
+Executing the command line interface (CLI) in an isolated Python environment is
+just as easy:
 
 ```shell
 uvx oe-python-template-example hello world               # prints "Hello, world! [..]"
@@ -137,10 +33,13 @@ uvx oe-python-template-example system openapi            # serves web API on por
 ```
 
 Notes:
-1. The API is versioned, mounted at `/api/v1` resp. `/api/v2`
-2. While serving the web API go to [http://127.0.0.1:8000/api/v1/hello-world](http://127.0.0.1:8000/api/v1/hello-world) to see the respons of the `hello-world` operation.
-3. Interactive documentation is provided at [http://127.0.0.1:8000/api/docs](http://127.0.0.1:8000/api/docs)
 
+1. The API is versioned, mounted at `/api/v1` resp. `/api/v2`
+2. While serving the web API go to
+   [http://127.0.0.1:8000/api/v1/hello-world](http://127.0.0.1:8000/api/v1/hello-world)
+   to see the respons of the `hello-world` operation.
+3. Interactive documentation is provided at
+   [http://127.0.0.1:8000/api/docs](http://127.0.0.1:8000/api/docs)
 
 The CLI provides extensive help:
 
@@ -153,27 +52,49 @@ uvx oe-python-template-example system serve --help
 uvx oe-python-template-example system openapi --help
 ```
 
-
 ## Operational Excellence
 
-This project is designed with operational excellence in mind, using modern Python tooling and practices. It includes:
+This project is designed with operational excellence in mind, using modern
+Python tooling and practices. It includes:
 
-1. Various examples demonstrating usage:
-  a. [Simple Python script](https://github.com/helmut-hoffer-von-ankershoffen/oe-python-template-example/blob/main/examples/script.py)
-  b. [Streamlit web application](https://oe-python-template-example.streamlit.app/) deployed on [Streamlit Community Cloud](https://streamlit.io/cloud)
-  c. [Jupyter](https://github.com/helmut-hoffer-von-ankershoffen/oe-python-template-example/blob/main/examples/notebook.ipynb) and [Marimo](https://github.com/helmut-hoffer-von-ankershoffen/oe-python-template-example/blob/main/examples/notebook.py) notebook
-2. Complete reference documentation [for the library](https://oe-python-template-example.readthedocs.io/en/latest/lib_reference.html), [for the CLI](https://oe-python-template-example.readthedocs.io/en/latest/cli_reference.html) and [for the API](https://oe-python-template-example.readthedocs.io/en/latest/api_reference_v1.html) on Read the Docs
-3. [Transparent test coverage](https://app.codecov.io/gh/helmut-hoffer-von-ankershoffen/oe-python-template-example) including unit and E2E tests (reported on Codecov)
-4. Matrix tested with [multiple python versions](https://github.com/helmut-hoffer-von-ankershoffen/oe-python-template-example/blob/main/noxfile.py) to ensure compatibility (powered by [Nox](https://nox.thea.codes/en/stable/))
-5. Compliant with modern linting and formatting standards (powered by [Ruff](https://github.com/astral-sh/ruff))
-6. Up-to-date dependencies (monitored by [Renovate](https://github.com/renovatebot/renovate) and [Dependabot](https://github.com/helmut-hoffer-von-ankershoffen/oe-python-template-example/security/dependabot))
-7. [A-grade code quality](https://sonarcloud.io/summary/new_code?id=helmut-hoffer-von-ankershoffen_oe-python-template-example) in security, maintainability, and reliability with low technical debt and codesmell (verified by SonarQube)
-8. Additional code security checks using [CodeQL](https://github.com/helmut-hoffer-von-ankershoffen/oe-python-template-example/security/code-scanning)
+1. Various examples demonstrating usage: a.
+   [Simple Python script](https://github.com/helmut-hoffer-von-ankershoffen/oe-python-template-example/blob/main/examples/script.py)
+   b.
+   [Streamlit web application](https://oe-python-template-example.streamlit.app/)
+   deployed on [Streamlit Community Cloud](https://streamlit.io/cloud) c.
+   [Jupyter](https://github.com/helmut-hoffer-von-ankershoffen/oe-python-template-example/blob/main/examples/notebook.ipynb)
+   and
+   [Marimo](https://github.com/helmut-hoffer-von-ankershoffen/oe-python-template-example/blob/main/examples/notebook.py)
+   notebook
+2. Complete reference documentation
+   [for the library](https://oe-python-template-example.readthedocs.io/en/latest/lib_reference.html),
+   [for the CLI](https://oe-python-template-example.readthedocs.io/en/latest/cli_reference.html)
+   and
+   [for the API](https://oe-python-template-example.readthedocs.io/en/latest/api_reference_v1.html)
+   on Read the Docs
+3. [Transparent test coverage](https://app.codecov.io/gh/helmut-hoffer-von-ankershoffen/oe-python-template-example)
+   including unit and E2E tests (reported on Codecov)
+4. Matrix tested with
+   [multiple python versions](https://github.com/helmut-hoffer-von-ankershoffen/oe-python-template-example/blob/main/noxfile.py)
+   to ensure compatibility (powered by [Nox](https://nox.thea.codes/en/stable/))
+5. Compliant with modern linting and formatting standards (powered by
+   [Ruff](https://github.com/astral-sh/ruff))
+6. Up-to-date dependencies (monitored by
+   [Renovate](https://github.com/renovatebot/renovate) and
+   [Dependabot](https://github.com/helmut-hoffer-von-ankershoffen/oe-python-template-example/security/dependabot))
+7. [A-grade code quality](https://sonarcloud.io/summary/new_code?id=helmut-hoffer-von-ankershoffen_oe-python-template-example)
+   in security, maintainability, and reliability with low technical debt and
+   codesmell (verified by SonarQube)
+8. Additional code security checks using
+   [CodeQL](https://github.com/helmut-hoffer-von-ankershoffen/oe-python-template-example/security/code-scanning)
 9. [Security Policy](SECURITY.md)
 10. [License](LICENSE) compliant with the Open Source Initiative (OSI)
-11. 1-liner for installation and execution of command line interface (CLI) via [uv(x)](https://github.com/astral-sh/uv) or [Docker](https://hub.docker.com/r/helmuthva/oe-python-template-example/tags)
-12. Setup for developing inside a [devcontainer](https://code.visualstudio.com/docs/devcontainers/containers) included (supports VSCode and GitHub Codespaces)
-
+11. 1-liner for installation and execution of command line interface (CLI) via
+    [uv(x)](https://github.com/astral-sh/uv) or
+    [Docker](https://hub.docker.com/r/helmuthva/oe-python-template-example/tags)
+12. Setup for developing inside a
+    [devcontainer](https://code.visualstudio.com/docs/devcontainers/containers)
+    included (supports VSCode and GitHub Codespaces)
 
 ## Usage Examples
 
@@ -185,29 +106,29 @@ The following examples run from source - clone this repository using
 ```python
 """Example script demonstrating the usage of the service provided by OE Python Template Example."""
 
-from dotenv import load_dotenv
 from rich.console import Console
 
 from oe_python_template_example.hello import Service
 
 console = Console()
 
-load_dotenv()
-
 message = Service.get_hello_world()
 console.print(f"[blue]{message}[/blue]")
 ```
 
-[Show script code](https://github.com/helmut-hoffer-von-ankershoffen/oe-python-template-example/blob/main/examples/script.py) - [Read the reference documentation](https://oe-python-template-example.readthedocs.io/en/latest/lib_reference.html)
-
+[Show script code](https://github.com/helmut-hoffer-von-ankershoffen/oe-python-template-example/blob/main/examples/script.py) -
+[Read the reference documentation](https://oe-python-template-example.readthedocs.io/en/latest/lib_reference.html)
 
 ### Streamlit App
 
-Serve the functionality provided by OE Python Template Example in the web by easily integrating the service into a Streamlit application.
+Serve the functionality provided by OE Python Template Example in the web by
+easily integrating the service into a Streamlit application.
 
-[Try it out!](https://oe-python-template-example.streamlit.app) - [Show the code](https://github.com/helmut-hoffer-von-ankershoffen/oe-python-template-example/blob/main/examples/streamlit.py)
+[Try it out!](https://oe-python-template-example.streamlit.app) -
+[Show the code](https://github.com/helmut-hoffer-von-ankershoffen/oe-python-template-example/blob/main/examples/streamlit.py)
 
 ... or serve the app locally
+
 ```shell
 uv sync --all-extras                                # Install streamlit dependency part of the examples extra, see pyproject.toml
 uv run streamlit run examples/streamlit.py          # Serve on localhost:8501, opens browser
@@ -215,8 +136,8 @@ uv run streamlit run examples/streamlit.py          # Serve on localhost:8501, o
 
 ### Vercel Serverless Function
 
-Serve the API as a [serverless function on Vercel](https://oe-python-template-example.vercel.app/)
-
+Serve the API as a
+[serverless function on Vercel](https://oe-python-template-example.vercel.app/)
 
 ## Notebooks
 
@@ -255,9 +176,11 @@ uv run marimo edit examples/notebook.py --watch     # Edit on localhost:2718, op
 
 ... or edit interactively within VSCode
 
-Install the [Marimo extension for VSCode](https://marketplace.visualstudio.com/items?itemName=marimo-team.vscode-marimo)
+Install the
+[Marimo extension for VSCode](https://marketplace.visualstudio.com/items?itemName=marimo-team.vscode-marimo)
 
-Click on `examples/notebook.py` in VSCode and click on the caret next to the Run icon above the code (looks like a pencil) > "Start in marimo editor" (edit).
+Click on `examples/notebook.py` in VSCode and click on the caret next to the Run
+icon above the code (looks like a pencil) > "Start in marimo editor" (edit).
 
 ... or without prior cloning of the repository
 
@@ -291,8 +214,9 @@ uvx oe-python-template-example system openapi --output-format=json
 uvx oe-python-template-example system serve
 ```
 
-See the [reference documentation of the CLI](https://oe-python-template-example.readthedocs.io/en/latest/cli_reference.html) for detailed documentation of all CLI commands and options.
-
+See the
+[reference documentation of the CLI](https://oe-python-template-example.readthedocs.io/en/latest/cli_reference.html)
+for detailed documentation of all CLI commands and options.
 
 ### Environment
 
@@ -322,7 +246,8 @@ docker run helmuthva/oe-python-template-example system openapi --output-format=j
 docker run helmuthva/oe-python-template-example system serve
 ```
 
-The default Docker image includes all extras. Additionally a slim image is provided, with no extras. Run as follows
+The default Docker image includes all extras. Additionally a slim image is
+provided, with no extras. Run as follows
 
 ```shell
 docker run helmuthva/oe-python-template-example-slim --help
@@ -337,7 +262,8 @@ docker run --env OE_PYTHON_TEMPLATE_EXAMPLE_HELLO_LANGUAGE=en_US helmuthva/oe-py
 ```
 
 A docker compose stack is provided. Clone this repository using
-`git clone git@github.com:helmut-hoffer-von-ankershoffen/oe-python-template-example.git` and enter the repository folder.
+`git clone git@github.com:helmut-hoffer-von-ankershoffen/oe-python-template-example.git`
+and enter the repository folder.
 
 The .env is passed through from the host to the Docker container.
 
@@ -377,8 +303,9 @@ echo "Shutting down the API container ..."
 docker compose down
 ```
 
-* See the [reference documentation of the API](https://oe-python-template-example.readthedocs.io/en/latest/api_reference_v1.html) for detailed documentation of all API operations and parameters.
-
+- See the
+  [reference documentation of the API](https://oe-python-template-example.readthedocs.io/en/latest/api_reference_v1.html)
+  for detailed documentation of all API operations and parameters.
 
 ## Extra: Lorem Ipsum
 
