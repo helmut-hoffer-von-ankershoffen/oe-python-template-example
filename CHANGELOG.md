@@ -1,5 +1,12 @@
 [🧠 OE Python Template Example](https://oe-python-template-example.readthedocs.io/en/latest/)
 
+## [0.4.7](https://github.com/helmut-hoffer-von-ankershoffen/oe-python-template-example/compare/v0.4.6..0.4.7) - 2025-04-21
+
+### 🎨 Styling
+
+- Format - ([dfe9288](https://github.com/helmut-hoffer-von-ankershoffen/oe-python-template-example/commit/dfe92880886c887605f2ddb25488870e8dc02580))
+
+
 ## [0.4.2](https://github.com/helmut-hoffer-von-ankershoffen/oe-python-template-example/compare/v0.4.1..v0.4.2) - 2025-04-20
 
 ### ⚙️ Miscellaneous Tasks
