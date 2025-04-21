@@ -302,11 +302,15 @@ uv run marimo edit examples/notebook.py --watch     # Edit on localhost:2718, op
 
 ... or edit interactively within VSCode
 
-Install the
-[Marimo extension for VSCode](https://marketplace.visualstudio.com/items?itemName=marimo-team.vscode-marimo)
+Install the [Marimo extension for VSCode](https://marketplace.visualstudio.com/items?itemName=marimo-team.vscode-marimo)
 
-Click on `examples/notebook.py` in VSCode and click on the caret next to the Run
-icon above the code (looks like a pencil) > "Start in marimo editor" (edit).
+Click on `examples/notebook.py` in VSCode and click on the caret next to the Run icon above the code (looks like a pencil) > "Start in marimo editor" (edit).
+
+... or without prior cloning of the repository
+
+```shell
+uvx marimo run https://raw.githubusercontent.com/helmut-hoffer-von-ankershoffen/oe-python-template-example/refs/heads/main/examples/notebook.py
+```
 
 ## Command Line Interface (CLI)
 
@@ -365,13 +369,22 @@ docker run helmuthva/oe-python-template-example system openapi --output-format=j
 docker run helmuthva/oe-python-template-example system serve
 ```
 
-Execute command:
+The default Docker image includes all extras. Additionally a slim image is provided, with no extras. Run as follows
 
 ```shell
-docker run --env THE_VAR=MY_VALUE helmuthva/oe-python-template-example hello echo "Lorem Ipsum"
+docker run helmuthva/oe-python-template-example-slim --help
+docker run helmuthva/oe-python-template-example-slim hello world
 ```
 
-Or use docker compose
+You can pass environment variables as parameters:
+
+```shell
+docker run --env OE_PYTHON_TEMPLATE_EXAMPLE_HELLO_LANGUAGE=de_DE helmuthva/oe-python-template-example hello world
+docker run --env OE_PYTHON_TEMPLATE_EXAMPLE_HELLO_LANGUAGE=en_US helmuthva/oe-python-template-example hello world
+```
+
+A docker compose stack is provided. Clone this repository using
+`git clone git@github.com:helmut-hoffer-von-ankershoffen/oe-python-template-example.git` and enter the repository folder.
 
 The .env is passed through from the host to the Docker container.
 
@@ -410,15 +423,6 @@ echo ""
 echo "Shutting down the API container ..."
 docker compose down
 ```
-
-#### Slim
-
-The default Docker image includes all extras. Additionally a slim image is provided, with no extras. Run as follows
-
-```shell
-docker compose run --remove-orphans oe-python-template-example-slim --help
-```
-
 
 * See the [reference documentation of the API](https://oe-python-template-example.readthedocs.io/en/latest/api_reference_v1.html) for detailed documentation of all API operations and parameters.
 
