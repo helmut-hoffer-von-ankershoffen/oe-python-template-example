@@ -1,6 +1,16 @@
 [🧠 OE Python Template Example](https://oe-python-template-example.readthedocs.io/en/latest/)
 
-## [0.4.8](https://github.com/helmut-hoffer-von-ankershoffen/oe-python-template-example/compare/v0.4.7..0.4.8) - 2025-04-21
+## [0.4.9](https://github.com/helmut-hoffer-von-ankershoffen/oe-python-template-example/compare/v0.4.8..0.4.9) - 2025-04-22
+
+### 🎨 Styling
+
+- *(test)* Sonar for test/health - ([0cc7803](https://github.com/helmut-hoffer-von-ankershoffen/oe-python-template-example/commit/0cc780316b6488a713834450f5f58e868605e012))
+
+## New Contributors ❤️
+
+* @helmut-hoffer-von-ankershoffen made their first contribution
+
+## [0.4.8](https://github.com/helmut-hoffer-von-ankershoffen/oe-python-template-example/compare/v0.4.7..v0.4.8) - 2025-04-21
 
 ### 🎨 Styling
 
