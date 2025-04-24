@@ -2,11 +2,11 @@
 
 # Environment
 .env
-.env.backup
-.env.bak
+.env.*
+!.env.example
+.envrc
 ENV/
 env/
-.envrc
 
 ## secrets
 .secret
@@ -79,6 +79,10 @@ node_modules/
 
 # Copier
 *.rej
+
+# Scalene
+profile.json
+profile.html
 
 
 # Vercel

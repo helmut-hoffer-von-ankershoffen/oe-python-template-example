@@ -105,6 +105,8 @@ HEALTHCHECK NONE
 # Default entrypoint is our CLI
 ENTRYPOINT ["oe-python-template-example"]
 
+# See https://matplotlib.org/stable/install/environment_variables_faq.html
+ENV MPLCONFIGDIR=/tmp/matplotlib
 
 # Target slim
 FROM target AS slim

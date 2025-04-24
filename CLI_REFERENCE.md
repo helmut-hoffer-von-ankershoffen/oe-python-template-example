@@ -14,7 +14,7 @@ $ oe-python-template-example [OPTIONS] COMMAND [ARGS]...
 * `--show-completion`: Show completion for the current shell, to copy it or customize the installation.
 * `--help`: Show this message and exit.
 
-🧠 OE Python Template Example v0.4.8 - built with love in Berlin 🐻
+🧠 OE Python Template Example v0.4.9 - built with love in Berlin 🐻
 
 **Commands**:
 
@@ -256,5 +256,5 @@ $ oe-python-template-example system sleep [OPTIONS]
 
 **Options**:
 
-* `--seconds INTEGER`: Duration in seconds  [default: 10]
+* `--seconds INTEGER`: Duration in seconds  [default: 2]
 * `--help`: Show this message and exit.
