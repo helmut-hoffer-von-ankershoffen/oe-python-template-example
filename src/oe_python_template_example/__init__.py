@@ -1,4 +1,4 @@
-"""Copier template to scaffold Python projects compliant with best practices and modern tooling."""
+"""Example project scaffolded and kept up to date with OE Python Template (oe-python-template)."""
 
 from .constants import MODULES_TO_INSTRUMENT
 from .utils.boot import boot

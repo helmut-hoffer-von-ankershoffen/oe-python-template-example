@@ -11,7 +11,7 @@ import marimo
 from oe_python_template_example.utils import __version__
 
 __generated_with = "0.13.0"
-app = marimo.App(app_title=f"🧠 OE Python Template Example v{__version__}")
+app = marimo.App(app_title=f"🧠 OE Python Template Example v{__version__}", width="full")
 
 
 @app.cell

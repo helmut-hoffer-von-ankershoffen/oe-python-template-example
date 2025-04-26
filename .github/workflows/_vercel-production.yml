@@ -1,15 +1,12 @@
-name: Vercel Deploy on Release
+name: "Vercel Production Deployment"
 
 on:
-  push:
-    tags:
-      - "v*.*.*"
-  release:
-    types: [created]
+  workflow_call:
+    # No inputs needed at this time
 
 jobs:
   deploy-production:
-    if: "!contains(github.event.head_commit.message, '[skip ci]')"
+    if: (!contains(github.event.head_commit.message, '[skip ci]'))
     runs-on: ubuntu-latest
     permissions:
       contents: read

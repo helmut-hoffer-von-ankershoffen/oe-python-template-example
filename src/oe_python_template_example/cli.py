@@ -12,14 +12,13 @@ boot(MODULES_TO_INSTRUMENT)
 logger = get_logger(__name__)
 
 cli = typer.Typer(help="Command Line Interface of OE Python Template Example")
-prepare_cli(cli, f"🧠 OE Python Template Example v{__version__} - built with love in Berlin 🐻")
 
 
 if find_spec("nicegui") and find_spec("webview") and not __is_running_in_container__:
 
     @cli.command()
     def gui() -> None:
-        """Start graphical user interface (GUI) in native window."""
+        """Open graphical user interface (GUI)."""
         from .utils import gui_run  # noqa: PLC0415
 
         gui_run(native=True, with_api=False, title="OE Python Template Example", icon="🧠")
@@ -37,7 +36,7 @@ if find_spec("marimo"):
         host: Annotated[str, typer.Option(help="Host to bind the server to")] = "127.0.0.1",
         port: Annotated[int, typer.Option(help="Port to bind the server to")] = 8001,
     ) -> None:
-        """Start notebook in web browser."""
+        """Run notebook server."""
         console.print(f"Starting marimo notebook server at http://{host}:{port}")
         uvicorn.run(
             create_marimo_app(),
@@ -45,6 +44,8 @@ if find_spec("marimo"):
             port=port,
         )
 
+
+prepare_cli(cli, f"🧠 OE Python Template Example v{__version__} - built with love in Berlin 🐻")
 
 if __name__ == "__main__":  # pragma: no cover
     try:
