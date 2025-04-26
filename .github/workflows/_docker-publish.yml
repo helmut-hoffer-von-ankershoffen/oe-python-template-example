@@ -36,63 +36,107 @@ jobs:
       - name: Log in to Docker Hub
         uses: docker/login-action@74a5d142397b4f367a81961eba4e8cd7edddf772 # v3.4.0
         with:
-          username: ${{ secrets.DOCKER_IO_USERNAME }}
-          password: ${{ secrets.DOCKER_IO_PASSWORD }}
+
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
 
 
-      - name: Log in to GitHub Container Registry
+
+      - name: Log in to GitHub container registry
         uses: docker/login-action@74a5d142397b4f367a81961eba4e8cd7edddf772 # v3.4.0
         with:
           registry: ghcr.io
-          username: ${{ github.repository_owner }}
+
+          username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Extract metadata for Docker
-        id: meta
-        uses: docker/metadata-action@38b8a86137171c128513e9be0b97bc476fbffcb5 # v5.6.0
+
+      - name: "(all target): Extract metadata (tags, labels) for Docker"
+        id: meta-all
+        uses: docker/metadata-action@902fa8ec7d6ecbf8d84d538b9b233a880e428804 # v5.7.0
         with:
+
+
           images: |
-            ghcr.io/helmut-hoffer-von-ankershoffen/oe-python-template-example
-
             ${{ env.DOCKER_IO_IMAGE_NAME_ALL }}
+            ghcr.io/${{ github.repository }}
 
-          flavor: |
-            latest=auto
-            prefix=
-            suffix=
+
+
           tags: |
-            type=semver,pattern=v
-            type=semver,pattern=v.
-            type=semver,pattern=v
+            # set latest tag for releases
+            type=raw,value=latest
+            # set semver tags from git tags (v1.2.3 -> 1.2.3, 1.2, 1)
+            type=semver,pattern={{version}}
+            type=semver,pattern={{major}}.{{minor}}
+            type=semver,pattern={{major}}
 
-      - name: Build and push Docker image (all)
-        uses: docker/build-push-action@e6ef1f314e8a75f35e85dbd71ebe08d4b3005fc8 # v6.2.0
+
+      - name: "(slim target): Extract metadata (tags, labels) for Docker"
+        id: meta-slim
+        uses: docker/metadata-action@902fa8ec7d6ecbf8d84d538b9b233a880e428804 # v5.7.0
+        with:
+
+
+          images: |
+            ${{ env.DOCKER_IO_IMAGE_NAME_SLIM }}
+            ghcr.io/${{ github.repository }}-slim
+
+
+
+          tags: |
+            # set latest tag for releases
+            type=raw,value=latest
+            # set semver tags from git tags (v1.2.3 -> 1.2.3, 1.2, 1)
+            type=semver,pattern={{version}}
+            type=semver,pattern={{major}}.{{minor}}
+            type=semver,pattern={{major}}
+
+
+
+      - name: "(all target): Build and push Docker image"
+        id: build-and-push-all
+        uses: docker/build-push-action@471d1dc4e07e5cdedd4c2171150001c434f0b7a4 # v6.15.0
         with:
           context: .
-          push: true
-          tags: ${{ steps.meta.outputs.tags }}
-          labels: ${{ steps.meta.outputs.labels }}
-          platforms: linux/amd64,linux/arm64
+          file: ./Dockerfile
           target: all
-          provenance: true
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
+          platforms: linux/amd64,linux/arm64
+          push: true
+          tags: ${{ steps.meta-all.outputs.tags }}
+          labels: ${{ steps.meta-all.outputs.labels }}
 
-      - name: Build and push Docker image (slim)
-        uses: docker/build-push-action@e6ef1f314e8a75f35e85dbd71ebe08d4b3005fc8 # v6.2.0
+
+
+      - name: "(slim target): Build and push Docker image"
+        id: build-and-push-slim
+        uses: docker/build-push-action@471d1dc4e07e5cdedd4c2171150001c434f0b7a4 # v6.15.0
         with:
           context: .
-          push: true
-          tags: |
-            ghcr.io/helmut-hoffer-von-ankershoffen/oe-python-template-example-slim:latest
-            ghcr.io/helmut-hoffer-von-ankershoffen/oe-python-template-example-slim:${{ github.ref_name }}
-
-            ${{ env.DOCKER_IO_IMAGE_NAME_SLIM }}:latest
-            ${{ env.DOCKER_IO_IMAGE_NAME_SLIM }}:${{ github.ref_name }}
-
-          labels: ${{ steps.meta.outputs.labels }}
-          platforms: linux/amd64,linux/arm64
+          file: ./Dockerfile
           target: slim
-          provenance: true
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
+          platforms: linux/amd64,linux/arm64
+          push: true
+          tags: ${{ steps.meta-slim.outputs.tags }}
+          labels: ${{ steps.meta-slim.outputs.labels }}
+
+
+
+
+
+      - name: "(all target): Generate artifact attestation"
+        uses: actions/attest-build-provenance@c074443f1aee8d4aeeae555aebba3282517141b2 # v2.2.3
+        with:
+          subject-name: ${{ env.DOCKER_IO_REGISTRY }}/${{ env.DOCKER_IO_IMAGE_NAME_ALL }}
+          subject-digest: ${{ steps.build-and-push-all.outputs.digest }}
+          push-to-registry: true
+
+
+
+
+      - name: "(slim target): Generate artifact attestation"
+        uses: actions/attest-build-provenance@c074443f1aee8d4aeeae555aebba3282517141b2 # v2.2.3
+        with:
+          subject-name: ${{ env.DOCKER_IO_REGISTRY }}/${{ env.DOCKER_IO_IMAGE_NAME_SLIM }}
+          subject-digest: ${{ steps.build-and-push-slim.outputs.digest }}
+          push-to-registry: true

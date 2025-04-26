@@ -6,7 +6,7 @@ on:
 
 jobs:
   deploy-preview:
-    if: (!contains(github.event.head_commit.message, '[skip ci]'))
+    environment: Preview
     runs-on: ubuntu-latest
     permissions:
       contents: read
