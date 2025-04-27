@@ -1,134 +1,26 @@
-Example project scaffolded and kept up to date with OE Python Template (oe-python-template).
-
-### Scaffolding
-
-This [Copier](https://copier.readthedocs.io/en/stable/) template enables you to quickly generate (scaffold) a Python package with fully functioning build and test automation:
-
-1. Projects generated from this template can be [easily updated](https://copier.readthedocs.io/en/stable/updating/) to benefit from improvements and new features of the template.
-2. During project generation, you can flexibly configure naming of the Python distribution, import package, main author, GitHub repository, organization, and many other aspects to match your specific requirements (see [copier.yml](https://github.com/helmut-hoffer-von-ankershoffen/oe-python-template/blob/main/copier.yml) for all available options).
-
-### Development Infrastructure
-
-Projects generated with this template come with a comprehensive development toolchain and quality assurance framework that supports the entire software development lifecycle - from coding and testing to documentation, release management, and compliance auditing. This infrastructure automates routine tasks, enforces code quality standards, and streamlines the path to production:
-
-1. Linting with [Ruff](https://github.com/astral-sh/ruff)
-2. Static type checking with [mypy](https://mypy.readthedocs.io/en/stable/)
-3. Complete set of [pre-commit](https://pre-commit.com/) hooks including [detect-secrets](https://github.com/Yelp/detect-secrets) and [pygrep](https://github.com/pre-commit/pygrep-hooks)
-4. Unit and E2E testing with [pytest](https://docs.pytest.org/en/stable/) including parallel test execution
-5. Matrix testing in multiple environments with [nox](https://nox.thea.codes/en/stable/)
-6. Test coverage reported with [Codecov](https://codecov.io/) and published as release artifact
-7. CI/CD pipeline automated with [GitHub Actions](https://github.com/features/actions) with parallel and reusable workflows, including scheduled testing, release automation, and multiple reporting channels and formats
-8. CI/CD pipeline can be run locally with [act](https://github.com/nektos/act)
-9. Code quality and security checks with [SonarQube](https://www.sonarsource.com/products/sonarcloud) and [GitHub CodeQL](https://codeql.github.com/)
-10. Dependency monitoring and vulnerability scanning with [pip-audit](https://pypi.org/project/pip-audit/), [trivy](https://trivy.dev/latest/), [Renovate](https://github.com/renovatebot/renovate), and [GitHub Dependabot](https://docs.github.com/en/code-security/getting-started/dependabot-quickstart-guide)
-11. Error monitoring and profiling with [Sentry](https://sentry.io/)  (optional)
-12. Logging and metrics with [Logfire](https://logfire.dev/) (optional)
-13. Prepared for uptime monitoring and scheduled tests with [betterstack](https://betterstack.com/) or alternatives
-14. Licenses of dependencies extracted with [pip-licenses](https://pypi.org/project/pip-licenses/), matched with allow list, and published as release artifacts in CSV and JSON format for further compliance checks
-15. Generation of attributions from extracted licenses
-16. Software Bill of Materials (SBOM) generated in [CycloneDX](https://cyclonedx.org/) and [SPDX](https://spdx.dev/) formats with [cyclonedx-python](https://github.com/CycloneDX/cyclonedx-python) resp. [trivy](https://trivy.dev/latest/), published as release artifacts
-17. Version and release management with [bump-my-version](https://callowayproject.github.io/bump-my-version/)
-18. Changelog and release notes generated with [git-cliff](https://git-cliff.org/)
-19. Documentation generated with [Sphinx](https://www.sphinx-doc.org/en/master/) including reference documentation for the library, CLI, and API
-20. Documentation published to [Read The Docs](https://readthedocs.org/) including generation of PDF and single page HTML versions
-21. Documentation including dynamic badges, setup instructions, contribution guide and security policy
-22. Interactive OpenAPI specification with [Swagger](https://swagger.io/)
-23. Python package published to [PyPI](https://pypi.org/)
-24. Multi-stage build of fat (all extras) and slim (no extras) multi-arch (arm64 and amd64) Docker images, running non-root within immutable container
-25. Docker images published to [Docker.io](https://hub.docker.com/) and [GitHub Container Registry](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry) with [artifact attestations](https://docs.github.com/en/actions/security-for-github-actions/using-artifact-attestations/using-artifact-attestations-to-establish-provenance-for-builds)
-26. One-click development environments with [Dev Containers](https://code.visualstudio.com/docs/devcontainers/containers) and [GitHub Codespaces](https://github.com/features/codespaces)
-27. Settings for use with [VSCode](https://code.visualstudio.com/)
-28. Settings and custom instructions for use with [GitHub Copilot](https://docs.github.com/en/copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot)
-29. API deployed as serverless function to [Vercel](https://vercel.com/) (optional)
-
-### Multi-head Application Features
-
-Beyond development tooling, projects generated with this template include the code, documentation, and configuration of a fully functioning service and multi-head application. This reference implementation serves as a starting point for your own business logic with modern patterns and enterprise practices already in place:
-
-1. Usable as library with "Hello" module exposing a simple service that can say "Hello, world!" and echo utterances.
-2. Comfortable command-line interface (CLI) with [Typer](https://typer.tiangolo.com/)
-3. Versioned webservice API with [FastAPI](https://fastapi.tiangolo.com/)
-4. Cross-platform Graphical User Interface (GUI) with
-   [NiceGUI](https://nicegui.io/) running in a browser or native window
-5. [Interactive Jupyter notebook](https://jupyter.org/) and [reactive Marimo notebook](https://marimo.io/)
-6. Simple Web UI with [Streamlit](https://streamlit.io/)
-7. Modular architecture auto-discovers and registers services, CLI commands, API routes and GUI pages exposed by domain modules
-8. Validation and settings management with [pydantic](https://docs.pydantic.dev/)
-9. System module providing aggregate health and info to the runtime, compiled settings, and further info provided by domain modules
-10. Health and Info available via command, webservice API (info passsword protected) and GUI
-11. Flexible logging and instrumentation, including support for [Sentry](https://sentry.io/) and [Logfire](https://logfire.dev/) 
-12. Hello service demonstrates use of custom real time metrics collected via Logfire
-13. Configuration to run the CLI and API in a Docker container including setup for [Docker Compose](https://docs.docker.com/get-started/docker-concepts/the-basics/what-is-docker-compose/)
-
-Explore [here](https://github.com/helmut-hoffer-von-ankershoffen/oe-python-template-example) for what's generated out of the box. While this template comes with multiple application interfaces ("heads") - Library, CLI, API, GUI, notebooks, and Streamlit; running native and within Docker - they're included to demonstrate capabilities and provide implementation patterns. You're expected to use this as a foundation, keeping only the interfaces relevant to your project's requirements. The modular architecture makes it easy to:
-
-1. Remove unnecessary interfaces to simplify your codebase
-2. Adapt existing interfaces to your specific use cases 
-3. Focus on your core business logic without reimplementing infrastructure
-4. Add new interfaces while leveraging the existing patterns
-
-
-## Generate a new project
-
-To generate, build and release a fully functioning project in a few minutes, follow these 5 steps:
-
-**Step 1**: Execute the following command to install or update tooling.
-```shell
-# Install Homebrew, uv package manager, copier and further dev tools
-curl -LsSf https://raw.githubusercontent.com/helmut-hoffer-von-ankershoffen/oe-python-template/HEAD/install.sh | sh
-```
-
-**Step 2**: [Create a repository on GitHub](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-new-repository), clone to your local machine, and change into it's directory.
-
-**Step 3**: Execute the following command to generate a new project based on this template.
-```shell
-# Ensure to stand in your freshly created git repository before executing this command
-copier copy --trust gh:helmut-hoffer-von-ankershoffen/oe-python-template .
-```
-
-**Step 4**: Execute the following commands to push your initial commit to GitHub.
-```shell
-git add .
-git commit -m "chore: Initial commit"
-git push
-```
-
-Check the [Actions tab](https://github.com/helmut-hoffer-von-ankershoffen/oe-python-template-example/actions) of your GitHub repository: The CI/CD workflow of your project is already running!
-
-The workflow will fail at the SonarQube step, as this external service is not yet configured for our new repository. We will configure SonarQube and other services in the next step!
-
-Notes:
-1. Check out [this manual](https://docs.github.com/en/authentication/managing-commit-signature-verification/telling-git-about-your-signing-key) on how to set up signed commits
-
-**Step 5**: Follow the [instructions](SERVICE_CONNECTIONS.md) to wire up
-external services such as CloudCov, SonarQube Cloud, Read The Docs, Docker.io, and Streamlit Community Cloud.
-
-**Step 6**: Release the first version of your project
-```shell
-make bump
-```
-Notes:
-1. You can remove the above sections - from "Scaffolding" to this notes - post having successfully generated your project.
-2. The following sections refer to the dummy application and service generated into the `tests` and `src` folder by this template.
-   Use the documentation and code as inspiration, adapt to your business logic, or remove and start documenting and coding from scratch.
-
+Example project scaffolded and kept up to date with OE Python Template
+(oe-python-template).
 
 ## Overview
 
-Adding OE Python Template Example to your project as a dependency is easy. See below for usage examples.
+Adding OE Python Template Example to your project as a dependency is easy. See
+below for usage examples.
 
 ```shell
 uv add oe-python-template-example             # add dependency to your project
 ```
 
-If you don't have uv installed follow [these instructions](https://docs.astral.sh/uv/getting-started/installation/). If you still prefer pip over the modern and fast package manager [uv](https://github.com/astral-sh/uv), you can install the library like this:
-
+If you don't have uv installed follow
+[these instructions](https://docs.astral.sh/uv/getting-started/installation/).
+If you still prefer pip over the modern and fast package manager
+[uv](https://github.com/astral-sh/uv), you can install the library like this:
 
 ```shell
 pip install oe-python-template-example        # add dependency to your project
 ```
 
-Executing the command line interface (CLI) in an isolated Python environment is just as easy:
+Executing the command line interface (CLI) in an isolated Python environment is
+just as easy:
 
 ```shell
 uvx oe-python-template-example hello world               # prints "Hello, world! [..]"
