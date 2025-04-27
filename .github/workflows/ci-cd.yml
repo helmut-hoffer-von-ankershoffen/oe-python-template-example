@@ -54,6 +54,18 @@ jobs:
     secrets: inherit
 
 
+  vercel_preview:
+
+    needs: [lint, audit, test, codeql]
+
+    if: (!(startsWith(github.ref, 'refs/tags/v') || (github.event_name == 'release')) && !contains(github.event.head_commit.message, '[skip ci]'))  
+    uses: ./.github/workflows/_vercel-preview.yml
+    permissions:
+      contents: read
+      deployments: write
+      id-token: write  
+    secrets: inherit
+
   package_publish:
 
     needs: [lint, audit, test, codeql]
@@ -78,19 +90,6 @@ jobs:
       packages: write
     secrets: inherit
 
-
-  vercel_preview:
-
-    needs: [lint, audit, test, codeql]
-
-    if: (!(startsWith(github.ref, 'refs/tags/v') || (github.event_name == 'release')) && !contains(github.event.head_commit.message, '[skip ci]'))  
-    uses: ./.github/workflows/_vercel-preview.yml
-    permissions:
-      contents: read
-      deployments: write
-      id-token: write  
-    secrets: inherit
-
   vercel_production:
 
     needs: [lint, audit, test, codeql]
@@ -102,4 +101,3 @@ jobs:
       deployments: write
       id-token: write  
     secrets: inherit
-
