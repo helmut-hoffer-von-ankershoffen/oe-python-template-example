@@ -12189,7 +12189,7 @@ License: LGPL-2.1-or-later
 
 ```
 
-## oe-python-template-example (0.4.15) - MIT License
+## oe-python-template-example (0.4.16) - MIT License
 
 🧠 Example project scaffolded and kept up to date with OE Python Template (oe-python-template).
 
