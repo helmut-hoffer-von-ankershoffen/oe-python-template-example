@@ -23,7 +23,7 @@ pydantic-extra-types==2.10.2
 pydantic-settings==2.8.1
 pygments==2.19.1
 python-dotenv==1.1.0
-python-multipart==0.0.20
+python-multipart==0.0.31
 pyyaml==6.0.2
 rich==13.9.4
 rich-toolkit==0.13.2
